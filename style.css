@@ -33,11 +33,11 @@ h1 {
 .main-content {
   flex: 1;
   display: flex;
+  flex-direction: row;
   transition: all 0.4s ease;
   position: relative;
 }
 
-/* Botón menú */
 .toggle-btn {
   position: fixed;
   left: 0;
@@ -116,12 +116,13 @@ h1 {
   margin-left: 0;
   flex: 1;
   width: 100%;
+  height: auto;
   padding: 20px;
   transition: margin-left 0.4s ease;
 }
 
 .menu-lateral.visible ~ .contenido {
-  margin-left: 250px;
+  margin-left: auto;
 }
 
 .contenido h2 {
@@ -131,9 +132,9 @@ h1 {
 
 .cuadros-internos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  height: calc(100vh - 200px);
+  height: auto;
 }
 
 .cuadro-interno {
@@ -182,13 +183,28 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .cuadros-internos {
-    grid-template-columns: 1fr;
-    height: auto;
+  .main-content {
+    flex-direction: column;
   }
 
+  .cuadros-internos {
+    grid-template-columns: 1fr;
+    height:100%;
+    
+  }
+.cuadros-internos {
+  display: grid;
+  grid-template-columns: repeat( auto-fill, minmax(320px, 1fr));
+  gap: 20%;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: auto;
+}
   .menu-lateral {
     width: 100%;
+    height: auto;
+    position: absolute;
     border-radius: 0;
   }
 
@@ -198,6 +214,12 @@ footer {
 
   .contenido {
     margin-left: 0;
+    padding: 10px;
+  }
+
+  .logo-izquierdo,
+  .logo-derecho {
+    width: 40px;
+    height: 40px;
   }
 }
-  
