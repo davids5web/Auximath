@@ -1,0 +1,109 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>AUXIMATH</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Logos institucionales -->
+  <img src="imagenes/OIP.jpeg" class="logo-izquierdo" alt="Logo colegio">
+  <img src="imagenes/koku.jpeg" class="logo-derecho" alt="Logo AUXIMATH">
+
+  <!-- Slider de imágenes -->
+  <div class="slider-container">
+    <div class="slider">
+      <div class="slide"><img src="imagenes/koku.jpeg" alt="Imagen 1"></div>
+      <div class="slide"><img src="imagenes/OIP.jpeg" alt="Imagen 2"></div>
+      <div class="slide"><img src="imagenes/img3.jpg" alt="Imagen 3"></div>
+    </div>
+    <!-- Botones de navegación del slider -->
+    <div class="nav-buttons">
+      <button onclick="prevSlide()">❮</button>
+      <button onclick="nextSlide()">❯</button>
+    </div>
+  </div>
+
+  <!-- Contenedor principal -->
+  <div class="main-content">
+    <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+
+    <div class="menu-lateral" id="menu">
+      <h2>Menú</h2>
+      <ul class="menu">
+        <li><a href="juego.html">Juegos</a></li>
+        <li><a href="foro.html">Foro</a></li>
+        <li><a href="personalizacion.html">Personalización</a></li>
+        <li><a href="actividades.html">Actividades</a></li>
+        <li><a href="puntos.html">Puntos</a></li>
+        <li><a href="ajustes.html"></a></li>
+
+        <video width="100%" autoplay loop muted controls> 
+          <source src="imagenes/WhatsApp Video 2025-07-22 at 7.32.43 AM.mp4">
+        </video>
+      </ul>
+    </div>
+
+    <div class="contenido">
+      <div class="cuadros-internos">
+        <a href="taller.html" class="cuadro-interno" style="background-image: url(imagenes/koku.jpeg);">TALLERES Y ACTIVIDADES</a>
+        <a href="ejemplos.html" class="cuadro-interno" style="background-image: url(imagenes/OIP.jpeg);">EJEMPLOS Y VIDEOS</a>
+        <a href="videos.html" class="cuadro-interno">FORO</a>
+        <a href="juego.html" class="cuadro-interno">PERSONALIZACION</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>Jesús Salcedo & Andrés Silva</footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('visible');
+    }
+
+    // Personalización desde localStorage
+    window.addEventListener('DOMContentLoaded', () => {
+      const fondo = localStorage.getItem('colorFondo');
+      const colorCuadro = localStorage.getItem('colorCuadro');
+      const bordeCuadro = localStorage.getItem('bordeCuadro');
+
+      if (fondo) document.body.style.background = fondo;
+
+      const cuadros = document.querySelectorAll('.cuadro-interno');
+      if (colorCuadro) {
+        cuadros.forEach(cuadro => cuadro.style.backgroundColor = colorCuadro);
+      }
+      if (bordeCuadro) {
+        cuadros.forEach(cuadro => cuadro.style.borderRadius = bordeCuadro);
+      }
+    });
+  </script>
+
+  <!-- Script slider -->
+ <script>
+  let currentSlide = 0;
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slide');
+
+  function updateSlider() {
+    const offset = -currentSlide * 100;
+    slider.style.transform = `translateX(${offset}%)`;
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateSlider();
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    updateSlider();
+  }
+
+  setInterval(nextSlide, 5000);
+</script>
+
+</body>
+</html>
