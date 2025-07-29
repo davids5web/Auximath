@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ajustes- AUXIMATH</title>
+  <link rel="stylesheet" href="ajustes.css">
+</head>
+<body>
+
+  <div class="menu-config">
+    <h2>Menú de ajustes</h2>
+
+    <div class="menu-desplegable">
+
+      <!-- 📂 Página principal -->
+      <div class="opcion-principal">
+        <button class="btn-submenu">📂 Página principal</button>
+        <div class="submenu-opciones">
+
+          <div class="config-bloque">
+            <label for="fondo">🎨 Color de fondo de la página</label>
+            <input type="color" id="fondo">
+          </div>
+
+          <div class="config-bloque">
+            <label for="cuadroColor">🟪 Color de los cuadros de la pagina principal</label>
+            <input type="color" id="cuadroColor" value="#ce93d8">
+          </div>
+
+          <div class="config-bloque">
+            <label for="bordeForma">🧱 Forma de los cuadros</label>
+            <select id="bordeForma">
+              <option value="0px">Cuadro (sin bordes redondeados)</option>
+              <option value="12px" selected>Redondeado</option>
+              <option value="50px">Muy redondeado</option>
+              <option value="100px">no funcional</option>
+            </select>
+            <div class="preview-cuadro" id="preview">Vista previa del cuadro</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 💬 Foro -->
+      <div class="opcion-principal">
+        <button class="btn-submenu">💬 Foro</button>
+        <div class="submenu-opciones">
+          <!-- Aquí pondrás los bloques del foro más adelante -->
+        </div>
+      </div>
+
+      <!-- 🎮 Juego -->
+      <div class="opcion-principal">
+        <button class="btn-submenu">🎮 Juego</button>
+        <div class="submenu-opciones">
+          <!-- Aquí pondrás los bloques del juego más adelante -->
+        </div>
+      </div>
+
+    </div>
+
+    <a href="index.html" class="boton-volver">Volver al inicio</a>
+  </div>
+
+  <script>
+    const fondo = document.getElementById('fondo');
+    const cuadroColor = document.getElementById('cuadroColor');
+    const bordeForma = document.getElementById('bordeForma');
+    const preview = document.getElementById('preview');
+
+    function guardarPersonalizacion() {
+      localStorage.setItem('colorFondo', fondo.value);
+      localStorage.setItem('colorCuadro', cuadroColor.value);
+      localStorage.setItem('bordeCuadro', bordeForma.value);
+    }
+
+    fondo.addEventListener('input', () => {
+      document.body.style.background = fondo.value;
+      guardarPersonalizacion();
+    });
+
+    cuadroColor.addEventListener('input', () => {
+      preview.style.backgroundColor = cuadroColor.value;
+      guardarPersonalizacion();
+    });
+
+    bordeForma.addEventListener('change', () => {
+      preview.style.borderRadius = bordeForma.value;
+      guardarPersonalizacion();
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('colorFondo')) {
+        fondo.value = localStorage.getItem('colorFondo');
+        document.body.style.background = fondo.value;
+      }
+
+      if (localStorage.getItem('colorCuadro')) {
+        cuadroColor.value = localStorage.getItem('colorCuadro');
+        preview.style.backgroundColor = cuadroColor.value;
+      }
+
+      if (localStorage.getItem('bordeCuadro')) {
+        bordeForma.value = localStorage.getItem('bordeCuadro');
+        preview.style.borderRadius = bordeForma.value;
+      }
+    });
+  </script>
+<script>
+  document.querySelectorAll('.btn-submenu').forEach(boton => {
+    boton.addEventListener('click', () => {
+      const submenu = boton.nextElementSibling;
+      submenu.style.display = submenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+  });
+</script>
+
+
+</body>
+</html>
