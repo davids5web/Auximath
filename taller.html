@@ -3,32 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <title>Talleres - AUXIMATH</title>
-  <link rel="stylesheet" href="taller.css">
+  <link rel="stylesheet" href="estilos/taller.css">
 </head>
 <body>
-  <header>
-    <h1>Talleres AUXIMATH</h1>
-    <p>Explora y pon a prueba tus conocimientos en razones trigonométricas.</p>
-  </header>
 
-  <main class="talleres-container">
-    <div class="taller">
-      <h2>Taller 1</h2>
-      <p>Identifica catetos y la hipotenusa en triángulos rectángulos.</p>
-      <a href="taller1.html">Ir al taller</a>
+  <!-- Menú lateral y botón -->
+  <div class="main-content">
+    <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+
+    <div class="menu-lateral" id="menu">
+      <h2>Menú</h2>
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="ajustes.html">Ajustes</a></li>
+        <li><a href="actividades.html">Actividades</a></li>
+        <li><a href="puntos.html">Puntos</a></li>
+        <video width="100%" autoplay loop muted controls> 
+          <source src="imagenes/WhatsApp Video 2025-07-22 at 7.32.43 AM.mp4">
+        </video>
+      </ul>
     </div>
 
-    <div class="taller">
-      <h2>Taller 2</h2>
-      <p>Aplica razones trigonométricas básicas en ejercicios prácticos.</p>
-      <a href="taller2.html">Ir al taller</a>
-    </div>
+    <!-- Contenido principal -->
+    <div class="contenido">
+      <header>
+        <h1>TALLERES DISPONIBLES AUXIMATH</h1>
+        <p>Explora y pon a prueba tus conocimientos en razones trigonométricas.</p>
+      </header>
 
-    <div class="taller">
-      <h2>Taller 3</h2>
-      <p>Resuelve problemas reales usando seno, coseno y tangente.</p>
-      <a href="taller3.html">Ir al taller</a>
+      <main class="talleres-container">
+        <div class="taller">
+          <h2>Taller 1</h2>
+          <p>Identifica catetos y la hipotenusa en triángulos rectángulos.</p>
+          <a href="taller1.html">Ir al taller</a>
+        </div>
+
+        <div class="taller">
+          <h2>Taller 2</h2>
+          <p>Aplica razones trigonométricas básicas en ejercicios prácticos.</p>
+          <a href="taller2.html">Ir al taller</a>
+        </div>
+
+        <div class="taller">
+          <h2>Taller 3</h2>
+          <p>Resuelve problemas reales usando seno, coseno y tangente.</p>
+          <a href="taller3.html">Ir al taller</a>
+        </div>
+
+        <div class="taller">
+          <h2>Taller 4</h2>
+          <p>Resuelve problemas reales usando seno, coseno y tangente.</p>
+          <a href="taller3.html">Ir al taller</a>
+        </div>
+      </main>
     </div>
-  </main>
+  </div>
+
+  <footer>Jesús Salcedo & Andrés Silva</footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('visible');
+    }
+  </script> 
 </body>
 </html>

@@ -1,11 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Videos y Ejemplos - Razones Trigonométricas</title>
+  <link rel="stylesheet" href="estilos/stylevi.css" />
 </head>
 <body>
-    <h1>actividadfes y vueos </h1>
+
+  <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+
+  <div class="menu-lateral" id="menuLateral">
+    <h2>Menú</h2>
+    <ul class="menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="taller.html">taller</a></li>
+      <li><a href="juego.html">juego</a></li>
+      <li><a href="ajustes.html">ajustes</a></li>
+    </ul>
+  </div>
+
+  <div class="contenido">
+    <header>
+      <h1>Videos y Ejemplos</h1>
+      <p>Explora diferentes recursos visuales para entender las razones trigonométricas.</p>
+    </header>
+
+    <section class="videos-ejemplos">
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/wEjkFvW8O30" frameborder="0" allowfullscreen></iframe>
+        <p>Introducción a las razones trigonométricas</p>
+      </div>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/SfZ3GsHmyXI" frameborder="0" allowfullscreen></iframe>
+        <p>Ejemplo práctico con triángulo rectángulo</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    Página creada por David · 2025
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menuLateral');
+      menu.classList.toggle('visible');
+    }
+  </script>
 </body>
 </html>

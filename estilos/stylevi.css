@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #004d7a;
+}
+
+p {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* ===================== SUBMENÚ ===================== */
+.toggle-btn {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  width: 40px;
+  height: 60px;
+  cursor: pointer;
+  z-index: 3;
+  font-size: 1.5rem;
+  transition: background 0.3s;
+}
+
+.toggle-btn:hover {
+  background-color: #1976d2;
+}
+
+.menu-lateral {
+  width: 250px;
+  background-color: #f3e5f5;
+  padding: 20px;
+  border-radius: 0 15px 15px 0;
+  box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+  z-index: 2;
+}
+
+.menu-lateral.visible {
+  transform: translateX(0);
+}
+
+.menu-lateral h2 {
+  color: #4a148c;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu li a {
+  display: block;
+  background-color: #2196f3;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+  transform: scale(1);
+}
+
+.menu li a:hover {
+  background-color: #1976d2;
+  transform: scale(1.05);
+}
+
+/* ===================== CONTENIDO ===================== */
+.contenido {
+  margin-left: 0;
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+  transition: margin-left 0.4s ease;
+}
+
+.menu-lateral.visible ~ .contenido {
+  margin-left: 250px;
+}
+
+/* ===================== VIDEOS Y EJEMPLOS ===================== */
+.videos-ejemplos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.video {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+}
+
+.video iframe {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-weight: bold;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 600px) {
+  .menu-lateral {
+    position: absolute;
+    height: 100%;
+  }
+
+  .menu-lateral.visible ~ .contenido {
+    margin-left: 0;
+  }
+
+  .contenido {
+    padding: 10px;
+  }
+
+  .video iframe {
+    height: 180px;
+  }
+}

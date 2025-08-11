@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.menu-config {
+  width: 100%;
+  max-width: 800px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.menu-config h2 {
+  font-size: 2rem;
+  color: #4a148c;
+  text-align: center;
+}
+
+.config-bloque {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  background-color: #e1bfbf;
+}
+
+.config-bloque label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  display: block;
+}
+
+.config-bloque input,
+.config-bloque select {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.preview-cuadro {
+  margin-top: 25px;
+  background-color: #ce93d8;
+  color: white;
+  padding: 40px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.boton-volver {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #2196f3;
+  color: white;
+  text-decoration: none;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: fit-content;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.boton-volver:hover {
+  background-color: #1976d2;
+  transform: scale(1.05);
+}
+
+.menu-desplegable {
+  margin-bottom: 40px;
+}
+
+.btn-submenu {
+  background-color: #e1bfbf;
+  color: black;
+  font-weight: bold;
+  font-size: 1.1rem;
+  width: 100%;
+  text-align: left;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 20px;
+}
+
+.btn-submenu:hover {
+  background-color: #d3a5a5;
+}
+
+.submenu-opciones {
+  margin-top: 15px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.submenu-opciones a {
+  text-decoration: none;
+  color: #333;
+  background: #f8e1e1;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: all 0.2s ease;
+}
+
+.submenu-opciones a:hover {
+  background: #ffdede;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-config {
+    padding: 20px 15px;
+  }
+
+  .boton-volver {
+    font-size: 1rem;
+    padding: 12px 24px;
+  }
+
+  .btn-submenu {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .submenu-opciones a {
+    font-size: 0.95rem;
+  }
+}
