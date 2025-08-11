@@ -213,3 +213,16 @@ footer {
 .toggle-btn:hover {
   background-color: #1976d2;
 }
+
+@media (max-width: 768px) {
+  /* Cuando el menú está visible en móvil */
+  .menu-lateral.visible ~ .contenido .talleres-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .menu-lateral.visible ~ .contenido .taller {
+    width: 100%;
+  }
+}
