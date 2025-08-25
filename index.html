@@ -1,62 +1,80 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="widith=device-widith, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AUXIMATH</title>
   <link rel="stylesheet" href="estilos/style.css">
 </head>
-
 <body>
   <!-- Logos institucionales -->
   <img src="imagenes/OIP.jpeg" class="logo-izquierdo" alt="Logo colegio">
   <img src="imagenes/koku.jpeg" class="logo-derecho" alt="Logo AUXIMATH">
- <h1 style="text-align: center;">AUXIMATH</h1>
-  <!-- Slider de imágenes -->
-  <div class="slider-container">
-    <div class="slider">
-      <div class="slide"><img src="imagenes/koku.jpeg" alt="Imagen 1"></div>
-      <div class="slide"><img src="imagenes/OIP.jpeg" alt="Imagen 2"></div>
-      <div class="slide"><img src="imagenes/img3.jpg" alt="Imagen 3"></div>
-    </div>
-    <!-- Botones de navegación del slider -->
-    <div class="nav-buttons">
-      <button onclick="prevSlide()">❮</button>
-      <button onclick="nextSlide()">❯</button>
-    </div>
-  </div>
+
+  <!-- Título principal -->
+ <div class="titulo-barra">
+    AUXIMATH
+ </div>
 
   <!-- Contenedor principal -->
   <div class="main-content">
     <button class="toggle-btn" onclick="toggleMenu()">☰</button>
 
+    <!-- Menú lateral -->
     <div class="menu-lateral" id="menu">
       <h2>Menú</h2>
       <ul class="menu">
-        
-        <li><a href="foro.html">pendiente</a></li>
         <li><a href="ajustes.html">Ajustes</a></li>
         <li><a href="actividades.html">Actividades</a></li>
         <li><a href="puntos.html">Puntos</a></li>
-        
-
         <video width="100%" autoplay loop muted controls> 
           <source src="imagenes/WhatsApp Video 2025-07-22 at 7.32.43 AM.mp4">
         </video>
       </ul>
     </div>
 
+    <!-- Contenido principal -->
     <div class="contenido">
       <div class="cuadros-internos">
-        <a href="taller.html" class="cuadro-interno" style="background-image: url(imagenes/koku.jpeg);">TALLERES Y ACTIVIDADES</a>
-        <a href="videos.html" class="cuadro-interno" style="background-image: url(imagenes/OIP.jpeg);">EJEMPLOS Y VIDEOS</a>
-        <a href="juego.html" class="cuadro-interno">JUEGOS</a>
-        <a href="juego.html" class="cuadro-interno">EPLORA</a>
+
+        <div class="cuadros-internos">
+  <a href="taller.html" class="flip-card-link">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">TALLERES Y ACTIVIDADES</div>
+        <div class="flip-card-back">Más información sobre talleres</div>
       </div>
     </div>
-  </div>
+  </a>
 
-  <footer>Jesús Salcedo & Andrés Silva</footer>
+  <a href="videos.html" class="flip-card-link">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">EJEMPLOS Y VIDEOS</div>
+        <div class="flip-card-back">Mira ejemplos y tutoriales</div>
+      </div>
+    </div>
+  </a>
+
+  <a href="juego.html" class="flip-card-link">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">JUEGOS</div>
+        <div class="flip-card-back">Juega y aprende</div>
+      </div>
+    </div>
+  </a>
+
+  <a href="explora.html" class="flip-card-link">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">EXPLORA</div>
+        <div class="flip-card-back">Explora más contenidos</div>
+      </div>
+    </div>
+  </a>
+</div>
+
 
   <script>
     function toggleMenu() {
@@ -81,30 +99,5 @@
       }
     });
   </script>
-
-  <!-- Script slider -->
- <script>
-  let currentSlide = 0;
-  const slider = document.querySelector('.slider');
-  const slides = document.querySelectorAll('.slide');
-
-  function updateSlider() {
-    const offset = -currentSlide * 100;
-    slider.style.transform = `translateX(${offset}%)`;
-  }
-
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    updateSlider();
-  }
-
-  function prevSlide() {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    updateSlider();
-  }
-
-  setInterval(nextSlide, 5000);
-</script>
-
 </body>
 </html>
