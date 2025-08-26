@@ -226,3 +226,9 @@ footer {
     width: 100%;
   }
 }
+@media (max-width: 768px) {
+  /* Cambiar a 1 columna solo cuando el menú esté abierto */
+  .menu-lateral.visible ~ .contenido .talleres-container {
+    grid-template-columns: 1fr !important;
+  }
+}

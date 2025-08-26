@@ -18,123 +18,88 @@ body {
   flex-direction: column;
 }
 
-/* ===================== ENCABEZADO Y PIE DE PÁGINA ===================== */
-header, footer {
-  width: 100%;
-  text-align: center;
-  padding: 10px;
-  font-weight: bold;
-}
-
-h1 {
-  font-size: 2.5rem;
-  color: #4a148c;
-  margin: 20px 0;
-}
-
-footer {
-  background-color: #ddd;
-  font-size: 0.9rem;
-}
-
-/* ===================== ESTRUCTURA PRINCIPAL ===================== */
-.main-content {
-  flex: 1;
-  display: flex;
-  transition: all 0.4s ease;
-  position: relative;
-}
-
-/* ===================== BOTÓN DE MENÚ LATERAL ===================== */
-.toggle-btn {
-  position: fixed;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #2196f3;
-  color: white;
-  border: none;
-  border-radius: 0 10px 10px 0;
-  width: 40px;
-  height: 60px;
-  cursor: pointer;
-  z-index: 3;
-  font-size: 1.5rem;
-  transition: background 0.3s;
-}
-
-.toggle-btn:hover {
-  background-color: #1976d2;
-}
-
-/* ===================== MENÚ LATERAL ===================== */
-.menu-lateral {
-  width: 250px;
-  background-color: #f3e5f5;
-  padding: 20px;
-  border-radius: 0 15px 15px 0;
-  box-shadow: 4px 0 10px rgba(0,0,0,0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  transform: translateX(-100%);
-  transition: transform 0.4s ease;
-  z-index: 2;
-}
-
-.menu-lateral.visible {
-  transform: translateX(0);
-}
-
-.menu-lateral h2 {
-  color: #4a148c;
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-.menu {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.menu li a {
+/* ===================== TÍTULO PRINCIPAL ===================== */
+.titulo-barra {
+  background-color: #8e24aa;
+  border-radius: 15px;
+  padding: 20px 40px;
   display: block;
-  background-color: #2196f3;
+  width: fit-content;
+  margin: 20px auto 10px auto;
+  text-align: center;
+  font-size: 2.5rem;
   color: white;
-  padding: 12px;
-  border-radius: 8px;
-  text-align: center;
   font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* ===================== GLASS MENU ===================== */
+.glass-menu {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0 30px 0;
+}
+
+.glass-menu ul {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.glass-menu ul li {
+  position: relative;
+  list-style: none;
+  width: 60px;
+  height: 60px;
+  transition: 0.5s;
+  overflow: hidden;
+  border-radius: 60px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.glass-menu ul li:hover {
+  width: 180px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.glass-menu ul li a {
+  display: flex;
+  align-items: center;
+  height: 100%;
   text-decoration: none;
-  transition: 0.3s;
+  padding-left: 10px;
+}
+
+.glass-menu ul li .icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.75em;
+  color: #fff;
+}
+
+.glass-menu ul li .title {
+  color: #fff;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+.glass-menu ul li:hover .title {
   transform: scale(1);
+  margin-left: 10px;
 }
-
-.menu li a:hover {
-  background-color: #1976d2;
-  transform: scale(1.05);
-}
-
-/* ===================== CONTENIDO PRINCIPAL ===================== */
-.contenido {
-  margin-left: 0;
-  flex: 1;
-  width: 100%;
-  padding: 20px;
-  transition: margin-left 0.4s ease;
-}
-
-.menu-lateral.visible ~ .contenido {
-  margin-left: 250px;
-}
-
-.contenido h2 {
-  text-align: center;
-  margin-bottom: 20px;
+.glass:hover {
+  background: linear-gradient(135deg, #ff7eb3, #ff758c);
 }
 
 /* ===================== CUADROS INTERNOS ===================== */
@@ -142,7 +107,8 @@ footer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  height: calc(100vh - 200px);
+  height: min(80vh, 600px);
+  grid-auto-rows: 1fr;
 }
 
 .cuadro-interno {
@@ -159,16 +125,54 @@ footer {
   justify-content: center;
   transition: transform 0.3s ease, background-color 0.3s ease;
   cursor: pointer;
-  height: auto;
-  min-height: 150px;
 }
 
-.cuadro-interno:hover {
+/* ===================== TARJETAS GIRATORIAS ===================== */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 20px;
+}
+
+.flip-card-front {
+  background-color: #ce93d8;
+}
+
+.flip-card-back {
   background-color: #ab47bc;
-  transform: scale(1.05);
+  transform: rotateY(180deg);
 }
 
-/* ===================== LOGOS SUPERIORES ===================== */
+/* ===================== LOGOS ===================== */
 .logo-izquierdo,
 .logo-derecho {
   position: absolute;
@@ -183,113 +187,4 @@ footer {
 
 .logo-derecho {
   right: 10px;
-}
-
-/* ===================== SLIDER ===================== */
-.slider-container {
-  position: relative;
-  width: 100%;
-  max-width: 1000px;
-  margin: 100px auto 20px;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  z-index: 1;
-}
-
-.slider-container {
-  width: 100%;
-  height: 300px;
-  overflow: hidden;
-  position: relative;
-  margin: 0 auto;
-}
-
-.slider {
-  display: flex;
-  width: 300%;
-  transition: transform 0.5s ease-in-out;
-  height: 100%;
-}
-
-.slide {
-  min-width: 100%;
-  height: 100%;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.nav-buttons {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  z-index: 2;
-}
-
-.nav-buttons button {
-  background: rgba(0, 0, 0, 0.5);
-  border: none;
-  color: white;
-  font-size: 1.5em;
-  padding: 0.3em 0.6em;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.nav-buttons button:hover {
-  background: rgba(0, 0, 0, 0.8);
-}
-
-/* ===================== RESPONSIVE DESIGN ===================== */
-@media (max-width: 768px) {
-  .cuadros-internos {
-    grid-template-columns: 1fr;
-    height: auto;
-  }
-
-  .cuadro-interno {
-    height: auto;
-    min-height: 150px;
-  }
-
-  .menu-lateral {
-    width: 100%;
-    border-radius: 0;
-  }
-
-  .menu-lateral.visible ~ .contenido {
-    margin-left: 0;
-  }
-
-  .contenido {
-    margin-left: 0;
-  }
-
-  .slider-container {
-    margin: 80px auto 20px;
-  }
-}
-
-@media (max-width: 600px) {
-  .nav-buttons button {
-    font-size: 1.2em;
-    padding: 0.2em 0.4em;
-  }
-
-  .slider-container {
-    border-radius: 8px;
-  }
-}
-
-.h1 {
-  font-family: fantasy;
-  font-size: 5%;
 }

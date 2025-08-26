@@ -12,69 +12,86 @@
   <img src="imagenes/koku.jpeg" class="logo-derecho" alt="Logo AUXIMATH">
 
   <!-- Título principal -->
- <div class="titulo-barra">
+  <div class="titulo-barra">
     AUXIMATH
- </div>
+  </div>
 
-  <!-- Contenedor principal -->
-  <div class="main-content">
-    <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+  <!-- Glass Menu (debajo del título) -->
+  <nav class="glass-menu">
+    <ul>
+      <li style="--i:#a955ff;--j:#ea51ff;">
+        <a href="ajustes.html">
+          <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+          <span class="title">Ajustes</span>
+        </a>
+      </li>
+      <li style="--i:#56CCF2;--j:#2F80ED;">
+        <a href="actividades.html">
+          <span class="icon"><ion-icon name="list-outline"></ion-icon></span>
+          <span class="title">Actividades</span>
+        </a>
+      </li>
+      <li style="--i:#ff9966;--j:#ff5e62;">
+        <a href="puntos.html">
+          <span class="icon"><ion-icon name="star-outline"></ion-icon></span>
+          <span class="title">Puntos</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-    <!-- Menú lateral -->
-    <div class="menu-lateral" id="menu">
-      <h2>Menú</h2>
-      <ul class="menu">
-        <li><a href="ajustes.html">Ajustes</a></li>
-        <li><a href="actividades.html">Actividades</a></li>
-        <li><a href="puntos.html">Puntos</a></li>
-        <video width="100%" autoplay loop muted controls> 
-          <source src="imagenes/WhatsApp Video 2025-07-22 at 7.32.43 AM.mp4">
-        </video>
-      </ul>
+  <!-- Contenedor lateral con video -->
+  <div class="menu-lateral" id="menu">
+    <h2>Menú</h2>
+    <video width="100%" autoplay loop muted controls> 
+      <source src="imagenes/WhatsApp Video 2025-07-22 at 7.32.43 AM.mp4">
+    </video>
+  </div>
+
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- Contenido principal -->
+  <div class="contenido">
+    <div class="cuadros-internos">
+      <a href="taller.html" class="flip-card-link">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">TALLERES Y ACTIVIDADES</div>
+            <div class="flip-card-back">Más información sobre talleres</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="videos.html" class="flip-card-link">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">EJEMPLOS Y VIDEOS</div>
+            <div class="flip-card-back">Mira ejemplos y tutoriales</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="juego.html" class="flip-card-link">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">JUEGOS</div>
+            <div class="flip-card-back">Juega y aprende</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="explora.html" class="flip-card-link">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">EXPLORA</div>
+            <div class="flip-card-back">Explora más contenidos</div>
+          </div>
+        </div>
+      </a>
     </div>
-
-    <!-- Contenido principal -->
-    <div class="contenido">
-      <div class="cuadros-internos">
-
-        <div class="cuadros-internos">
-  <a href="taller.html" class="flip-card-link">
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">TALLERES Y ACTIVIDADES</div>
-        <div class="flip-card-back">Más información sobre talleres</div>
-      </div>
-    </div>
-  </a>
-
-  <a href="videos.html" class="flip-card-link">
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">EJEMPLOS Y VIDEOS</div>
-        <div class="flip-card-back">Mira ejemplos y tutoriales</div>
-      </div>
-    </div>
-  </a>
-
-  <a href="juego.html" class="flip-card-link">
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">JUEGOS</div>
-        <div class="flip-card-back">Juega y aprende</div>
-      </div>
-    </div>
-  </a>
-
-  <a href="explora.html" class="flip-card-link">
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">EXPLORA</div>
-        <div class="flip-card-back">Explora más contenidos</div>
-      </div>
-    </div>
-  </a>
-</div>
-
+  </div>
 
   <script>
     function toggleMenu() {
