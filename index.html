@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AUXIMATH</title>
   <link rel="stylesheet" href="estilos/style.css">
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Logos institucionales -->
@@ -40,14 +42,6 @@
     </ul>
   </nav>
 
-  <!-- Contenedor lateral con video -->
-  <div class="menu-lateral" id="menu">
-    <h2>Menú</h2>
-    <video width="100%" autoplay loop muted controls> 
-      <source src="imagenes/WhatsApp Video 2025-07-22 at 7.32.43 AM.mp4">
-    </video>
-  </div>
-
   <!-- Ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -55,16 +49,18 @@
   <!-- Contenido principal -->
   <div class="contenido">
     <div class="cuadros-internos">
-      <a href="taller.html" class="flip-card-link">
+
+      <a href="taller.html" class="flip-card-link reveal">
         <div class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front">TALLERES Y ACTIVIDADES</div>
+            <div class="flip-card-front">
+              <img src="imagenes/OIP.jpeg" alt="taller" class="card-img"></div>
             <div class="flip-card-back">Más información sobre talleres</div>
           </div>
         </div>
       </a>
 
-      <a href="videos.html" class="flip-card-link">
+      <a href="videos.html" class="flip-card-link reveal">
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">EJEMPLOS Y VIDEOS</div>
@@ -73,7 +69,7 @@
         </div>
       </a>
 
-      <a href="juego.html" class="flip-card-link">
+      <a href="juego.html" class="flip-card-link reveal">
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">JUEGOS</div>
@@ -82,7 +78,7 @@
         </div>
       </a>
 
-      <a href="explora.html" class="flip-card-link">
+      <a href="explora.html" class="flip-card-link reveal">
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">EXPLORA</div>
@@ -93,27 +89,98 @@
     </div>
   </div>
 
+  <!-- Footer -->
+  <footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>Sobre nosotros</h4>
+      <p>Proyecto AUXIMATH - aprendiendo trigonometría de forma interactiva.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Enlaces</h4>
+      <a href="#">Inicio</a> | 
+      <a href="#">Juegos</a> 
+    </div>
+    <div class="footer-section">
+      <h4>Contacto</h4>
+      <p>Email: auximath@ejemplo.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 AUXIMATH | Todos los derechos reservados
+  </div>
+</footer>
+
+
+  <!-- Script ya existente + scroll reveal -->
   <script>
     function toggleMenu() {
       const menu = document.getElementById('menu');
       menu.classList.toggle('visible');
     }
 
-    // Personalización desde localStorage
+    // Personalización desde localStorage (tu código intacto)
     window.addEventListener('DOMContentLoaded', () => {
-      const fondo = localStorage.getItem('colorFondo');
-      const colorCuadro = localStorage.getItem('colorCuadro');
-      const bordeCuadro = localStorage.getItem('bordeCuadro');
+      const fondo           = localStorage.getItem('colorFondo');
+      const colorCuadro     = localStorage.getItem('colorCuadro');
+      const bordeCuadro     = localStorage.getItem('bordeCuadro');
+      const fuente          = localStorage.getItem('fuentePagina');
+      const textoColor      = localStorage.getItem('textoColor');
+      const sombraCuadro    = localStorage.getItem('sombraCuadro');
+      const animacionCuadro = localStorage.getItem('animacionCuadro');
+      const tamanoCuadro    = localStorage.getItem('tamanoCuadro');
+
+      const cuadros = document.querySelectorAll('.cuadro-interno, .cuadro, .card, .item-cuadro');
 
       if (fondo) document.body.style.background = fondo;
+      if (fuente) document.body.style.fontFamily = fuente;
+      if (textoColor) {
+        document.body.style.color = textoColor;
+        cuadros.forEach(cuadro => { cuadro.style.color = textoColor; });
+      }
+      if (colorCuadro)  cuadros.forEach(c => c.style.backgroundColor = colorCuadro);
+      if (bordeCuadro)  cuadros.forEach(c => c.style.borderRadius    = bordeCuadro);
+      if (sombraCuadro) cuadros.forEach(c => c.style.boxShadow       = sombraCuadro);
+      if (tamanoCuadro) cuadros.forEach(c => { c.style.width = tamanoCuadro; c.style.height = tamanoCuadro; });
 
-      const cuadros = document.querySelectorAll('.cuadro-interno');
-      if (colorCuadro) {
-        cuadros.forEach(cuadro => cuadro.style.backgroundColor = colorCuadro);
+      (function ensureKeyframes() {
+        if (document.getElementById('aux-anim-kf')) return;
+        const style = document.createElement('style');
+        style.id = 'aux-anim-kf';
+        style.textContent = `
+          @keyframes auxFadeIn  { from {opacity:0; transform: translateY(8px);} to {opacity:1; transform:none;} }
+          @keyframes auxSlideIn { from {opacity:0; transform: translateX(-20px);} to {opacity:1; transform:none;} }
+          @keyframes auxZoomIn  { from {opacity:0; transform: scale(0.9);} to {opacity:1; transform: scale(1);} }
+        `;
+        document.head.appendChild(style);
+      })();
+
+      if (animacionCuadro) {
+        cuadros.forEach(c => {
+          c.style.animation = 'none';
+          if (animacionCuadro === 'fade') {
+            c.style.animation = 'auxFadeIn 0.6s ease both';
+          } else if (animacionCuadro === 'slide') {
+            c.style.animation = 'auxSlideIn 0.6s ease both';
+          } else if (animacionCuadro === 'zoom') {
+            c.style.animation = 'auxZoomIn 0.6s ease both';
+            c.style.transition = 'transform 0.2s ease';
+            c.addEventListener('mouseenter', () => { c.style.transform = 'scale(1.03)'; });
+            c.addEventListener('mouseleave', () => { c.style.transform = 'scale(1)'; });
+          }
+        });
       }
-      if (bordeCuadro) {
-        cuadros.forEach(cuadro => cuadro.style.borderRadius = bordeCuadro);
-      }
+    });
+
+    // Scroll reveal básico
+    const reveals = document.querySelectorAll('.reveal');
+    window.addEventListener('scroll', () => {
+      reveals.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
     });
   </script>
 </body>

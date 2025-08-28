@@ -6,7 +6,7 @@
 }
 
 html, body {
-  height: 100%;
+  height: auto;
   font-family: sans-serif;
   background: linear-gradient(to right, #e0f7fa, #e1bee7);
   color: #333;
@@ -16,13 +16,14 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
+  padding: 20px;
 }
 
 /* ===================== TÍTULO PRINCIPAL ===================== */
 .titulo-barra {
   background-color: #8e24aa;
   border-radius: 15px;
-  padding: 20px 40px;
+  padding: 15px 30%;
   display: block;
   width: fit-content;
   margin: 20px auto 10px auto;
@@ -37,7 +38,7 @@ body {
 .glass-menu {
   display: flex;
   justify-content: center;
-  margin: 15px 0 30px 0;
+  margin: 10px 0 20px 0;
 }
 
 .glass-menu ul {
@@ -52,19 +53,26 @@ body {
 .glass-menu ul li {
   position: relative;
   list-style: none;
-  width: 60px;
-  height: 60px;
-  transition: 0.5s;
+  width:50px;
+  height: 50px;
+  transition: width 1s ease, background 1s ease, box-shadow 0.5s ease;
   overflow: hidden;
   border-radius: 60px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.08);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.3);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.25);
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  background-size: 200% 200%;
 }
 
 .glass-menu ul li:hover {
-  width: 180px;
+  width: 200px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  /* aquí está el degradado que quieres ver al abrir */
+  background-image: linear-gradient(135deg, #ff7eb3 0%, #ff758c 50%, #ffd1a9 100%);
+  background-position: right center;
+  border-color: rgba(255,255,255,0.35);
 }
 
 .glass-menu ul li a {
@@ -83,6 +91,11 @@ body {
   align-items: center;
   font-size: 1.75em;
   color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.glass-menu ul li:hover .icon {
+  transform: scale(1.15) rotate(6deg);
 }
 
 .glass-menu ul li .title {
@@ -91,15 +104,15 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   transform: scale(0);
-  transition: 0.5s;
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  white-space: nowrap;
 }
 
 .glass-menu ul li:hover .title {
   transform: scale(1);
+  opacity: 1;
   margin-left: 10px;
-}
-.glass:hover {
-  background: linear-gradient(135deg, #ff7eb3, #ff758c);
 }
 
 /* ===================== CUADROS INTERNOS ===================== */
@@ -107,7 +120,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  height: min(80vh, 600px);
+  height: min(500px);
   grid-auto-rows: 1fr;
 }
 
@@ -131,15 +144,16 @@ body {
 .flip-card {
   background-color: transparent;
   width: 100%;
-  height: 100%;
+  height: 90%;
   perspective: 1000px;
+  border-radius: 10px;
 }
 
 .flip-card-inner {
   position: relative;
   width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
+  height: 90%;
+  transition: transform 0.8s ease-in-out;
   transform-style: preserve-3d;
 }
 
@@ -161,6 +175,7 @@ body {
   font-size: 1.2rem;
   text-align: center;
   padding: 20px;
+  border:2px solid white;
 }
 
 .flip-card-front {
@@ -172,13 +187,20 @@ body {
   transform: rotateY(180deg);
 }
 
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta la imagen sin deformarla */
+  border-radius: 10px; /* opcional, si quieres bordes redondeados */
+}
+
 /* ===================== LOGOS ===================== */
-.logo-izquierdo,
-.logo-derecho {
+.logo-izquierdo, .logo-derecho {
   position: absolute;
   width: 80px;
   height: 80px;
   top: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .logo-izquierdo {
@@ -187,4 +209,54 @@ body {
 
 .logo-derecho {
   right: 10px;
+}
+
+.logo-izquierdo:hover, .logo-derecho:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.4));
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+  background-color: #222;   /* color de fondo */
+  color: #fff;              /* color del texto */
+  text-align: center;       /* centra el contenido */
+  font-size: 14px;          /* tamaño de fuente */
+  margin-top: 40px;         /* espacio respecto al contenido */
+  border-top: 2px solid #444;
+}
+
+footer a {
+  color: #00bcd4;           /* enlaces con color llamativo */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ff4081;           /* cambia de color al pasar el mouse */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1 1 100px;   /* mínimo 250px, crece de forma flexible */
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #00bcd4;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #aaa;
 }
