@@ -13,12 +13,14 @@
   <img src="imagenes/OIP.jpeg" class="logo-izquierdo" alt="Logo colegio">
   <img src="imagenes/koku.jpeg" class="logo-derecho" alt="Logo AUXIMATH">
 
-  <!-- Título principal -->
-  <div class="titulo-barra">
-    AUXIMATH
+  <!-- Título principal (esquina izquierda superior) -->
+  <div class="titulo-slider">
+    <div class="slide active">RAZONES TRIGONOMÉTRICAS</div>
+    <div class="slide">FUNCIONES Y ÁNGULOS</div>
+    <div class="slide">APLICACIONES EN LA VIDA REAL</div>
   </div>
 
-  <!-- Glass Menu (debajo del título) -->
+  <!-- Glass Menu (esquina derecha superior) -->
   <nav class="glass-menu">
     <ul>
       <li style="--i:#a955ff;--j:#ea51ff;">
@@ -46,7 +48,7 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-  <!-- Contenido principal -->
+  <!-- Contenido principal con flip-cards -->
   <div class="contenido">
     <div class="cuadros-internos">
 
@@ -54,7 +56,8 @@
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="imagenes/OIP.jpeg" alt="taller" class="card-img"></div>
+              <img src="imagenes/OIP.jpeg" alt="taller" class="card-img">
+            </div>
             <div class="flip-card-back">Más información sobre talleres</div>
           </div>
         </div>
@@ -91,35 +94,31 @@
 
   <!-- Footer -->
   <footer>
-  <div class="footer-container">
-    <div class="footer-section">
-      <h4>Sobre nosotros</h4>
-      <p>Proyecto AUXIMATH - aprendiendo trigonometría de forma interactiva.</p>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Sobre nosotros</h4>
+        <p>Proyecto AUXIMATH</p>
+        <p>aprendiendo trigonometría de forma interactiva.</p>
+      </div>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h4>Enlaces</h4>
+          <a href="#">Proceso</a><br>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <p>Email: auximath@ejemplo.com</p>
+      </div>
     </div>
-    <div class="footer-section">
-      <h4>Enlaces</h4>
-      <a href="#">Inicio</a> | 
-      <a href="#">Juegos</a> 
+    <div class="footer-bottom">
+      &copy; 2025 AUXIMATH | Todos los derechos reservados
     </div>
-    <div class="footer-section">
-      <h4>Contacto</h4>
-      <p>Email: auximath@ejemplo.com</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    &copy; 2025 AUXIMATH | Todos los derechos reservados
-  </div>
-</footer>
+  </footer>
 
-
-  <!-- Script ya existente + scroll reveal -->
+  <!-- Script + animaciones -->
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menu');
-      menu.classList.toggle('visible');
-    }
-
-    // Personalización desde localStorage (tu código intacto)
+    // Personalización desde localStorage
     window.addEventListener('DOMContentLoaded', () => {
       const fondo           = localStorage.getItem('colorFondo');
       const colorCuadro     = localStorage.getItem('colorCuadro');
@@ -143,6 +142,7 @@
       if (sombraCuadro) cuadros.forEach(c => c.style.boxShadow       = sombraCuadro);
       if (tamanoCuadro) cuadros.forEach(c => { c.style.width = tamanoCuadro; c.style.height = tamanoCuadro; });
 
+      // Keyframes
       (function ensureKeyframes() {
         if (document.getElementById('aux-anim-kf')) return;
         const style = document.createElement('style');
@@ -182,6 +182,15 @@
         }
       });
     });
+
+    // Barra de titulo slider (cambia frases)
+    let slides = document.querySelectorAll(".titulo-slider .slide");
+    let index = 0;
+    setInterval(() => {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 3000);
   </script>
 </body>
 </html>

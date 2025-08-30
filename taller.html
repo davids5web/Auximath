@@ -2,70 +2,54 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Talleres - AUXIMATH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talleres - Razones Trigonométricas</title>
+  <!-- Iconos -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!-- CSS externo -->
   <link rel="stylesheet" href="estilos/taller.css">
 </head>
 <body>
+  <!-- HEADER -->
+  <header>
+    <h1>📚 Talleres de Razones Trigonométricas</h1>
+    <p>Accede a cada taller de manera dinámica y visual</p>
+  </header>
 
-  <!-- Menú lateral y botón -->
-  <div class="main-content">
-    <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+  <!-- NAV -->
+  <nav class="glass-menu">
+    <ul>
+      <li><a href="ajustes.html"><span class="icon"><ion-icon name="settings-outline"></ion-icon></span><span class="title">Ajustes</span></a></li>
+      <li><a href="actividades.html"><span class="icon"><ion-icon name="list-outline"></ion-icon></span><span class="title">Actividades</span></a></li>
+      <li><a href="index.html"><span class="icon"><ion-icon name="star-outline"></ion-icon></span><span class="title">Inicio</span></a></li>
+    </ul>
+  </nav>
 
-    <div class="menu-lateral" id="menu">
-      <h2>Menú</h2>
-      <ul class="menu">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="ajustes.html">Ajustes</a></li>
-        <li><a href="actividades.html">Actividades</a></li>
-        <li><a href="puntos.html">Puntos</a></li>
-        <video width="100%" autoplay loop muted controls> 
-          <source src="imagenes/WhatsApp Video 2025-07-22 at 7.32.43 AM.mp4">
-        </video>
-      </ul>
-    </div>
-
-    <!-- Contenido principal -->
-    <div class="contenido">
-      <header>
-        <h1>TALLERES DISPONIBLES AUXIMATH</h1>
-        <p>Explora y pon a prueba tus conocimientos en razones trigonométricas.</p>
-      </header>
-
-      <main class="talleres-container">
-        <div class="taller">
-          <h2>Taller 1</h2>
-          <p>Identifica catetos y la hipotenusa en triángulos rectángulos.</p>
-          <a href="taller1.html">Ir al taller</a>
-        </div>
-
-        <div class="taller">
-          <h2>Taller 2</h2>
-          <p>Aplica razones trigonométricas básicas en ejercicios prácticos.</p>
-          <a href="taller2.html">Ir al taller</a>
-        </div>
-
-        <div class="taller">
-          <h2>Taller 3</h2>
-          <p>Resuelve problemas reales usando seno, coseno y tangente.</p>
-          <a href="taller3.html">Ir al taller</a>
-        </div>
-
-        <div class="taller">
-          <h2>Taller 4</h2>
-          <p>Resuelve problemas reales usando seno, coseno y tangente.</p>
-          <a href="taller3.html">Ir al taller</a>
-        </div>
-      </main>
-    </div>
-  </div>
-
-  <footer>Jesús Salcedo & Andrés Silva</footer>
-
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menu');
-      menu.classList.toggle('visible');
-    }
-  </script> 
+  <!-- MAIN -->
+  <main>
+    <section class="timeline">
+      <div class="taller left">
+        <h2>Taller 1: Introducción</h2>
+        <p>Conceptos básicos de seno, coseno y tangente.</p>
+        <a href="taller1.html" class="btn-taller">¡¡Ingresa al taller!!</a>
+      </div>
+      <div class="taller right">
+        <h2>Taller 2: Aplicaciones</h2>
+        <p>Uso de las razones trigonométricas en triángulos rectángulos.</p>
+        <a href="taller2.html" class="btn-taller">¡¡Ingresa al taller!!</a>
+      </div>
+      <div class="taller left">
+        <h2>Taller 3: Problemas Prácticos</h2>
+        <p>Ejercicios resueltos paso a paso.</p>
+        <a href="taller.html" class="btn-taller">¡¡Ingresa al taller!!</a>
+      </div>
+      <div class="taller right">
+        <h2>Taller 4: Contextos Reales</h2>
+        <p>Ejemplos en física, arquitectura y navegación.</p>
+        <a href="taller4.html" class="btn-taller">¡¡Ingresa al taller!!</a>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
