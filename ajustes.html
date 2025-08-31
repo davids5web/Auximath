@@ -2,76 +2,121 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>ajustes- AUXIMATH</title>
+  <title>Ajustes - AUXIMATH</title>
   <link rel="stylesheet" href="estilos/ajustes.css">
 </head>
 <body>
-
   <div class="menu-config">
     <h2>Menú de ajustes</h2>
 
     <div class="menu-desplegable">
-
       <!-- 📂 Página principal -->
       <div class="opcion-principal">
         <button class="btn-submenu">📂 Página principal</button>
         <div class="submenu-opciones">
 
+          <!-- Color fondo -->
           <div class="config-bloque">
             <label for="fondo">🎨 Color de fondo de la página</label>
             <input type="color" id="fondo">
           </div>
 
+          <!-- Color cuadros -->
           <div class="config-bloque">
-            <label for="cuadroColor">🟪 Color de los cuadros de la pagina principal</label>
+            <label for="cuadroColor">🟪 Color de los cuadros de la página principal</label>
             <input type="color" id="cuadroColor" value="#ce93d8">
           </div>
 
+          <!-- Forma cuadros -->
           <div class="config-bloque">
             <label for="bordeForma">🧱 Forma de los cuadros</label>
             <select id="bordeForma">
               <option value="0px">Cuadro (sin bordes redondeados)</option>
               <option value="12px" selected>Redondeado</option>
               <option value="50px">Muy redondeado</option>
-              <option value="100px">no funcional</option>
             </select>
             <div class="preview-cuadro" id="preview">Vista previa del cuadro</div>
           </div>
 
-        </div>
-      </div>
+          <!-- 🔹 Nuevas opciones -->
+          <div class="config-bloque">
+            <label for="fuente">🔤 Fuente de la página</label>
+            <select id="fuente">
+              <option value="'Poppins', sans-serif" selected>Poppins</option>
+              <option value="'Roboto', sans-serif">Roboto</option>
+              <option value="'Courier New', monospace">Monospace</option>
+              <option value="'Georgia', serif">Serif elegante</option>
+            </select>
+          </div>
 
-      <!-- 💬 Foro -->
-      <div class="opcion-principal">
-        <button class="btn-submenu">💬 Foro</button>
-        <div class="submenu-opciones">
-          <!-- Aquí pondrás los bloques del foro más adelante -->
+          <div class="config-bloque">
+            <label for="tamanoCuadro">📏 Tamaño de los cuadros</label>
+            <select id="tamanoCuadro">
+              <option value="150px">Pequeño</option>
+              <option value="200px" selected>Mediano</option>
+              <option value="250px">Grande</option>
+            </select>
+          </div>
+
+          <div class="config-bloque">
+            <label for="textoColor">🖍️ Color del texto en los cuadros</label>
+            <input type="color" id="textoColor" value="#ffffff">
+          </div>
+
+          <div class="config-bloque">
+            <label for="sombraCuadro">🌑 Sombra de los cuadros</label>
+            <select id="sombraCuadro">
+              <option value="none">Sin sombra</option>
+              <option value="0 4px 12px rgba(0,0,0,0.3)" selected>Con sombra</option>
+            </select>
+          </div>
+
+          <div class="config-bloque">
+            <label for="animacionCuadro">✨ Animación de los cuadros</label>
+            <select id="animacionCuadro">
+              <option value="fade">Aparecer (Fade)</option>
+              <option value="slide">Deslizar</option>
+              <option value="zoom">Zoom</option>
+              <option value="none" selected>Sin animación</option>
+            </select>
+          </div>
         </div>
       </div>
 
       <!-- 🎮 Juego -->
-      <div class="opcion-principal">
+       <div class="opcion-principal">
         <button class="btn-submenu">🎮 Juego</button>
         <div class="submenu-opciones">
-          <!-- Aquí pondrás los bloques del juego más adelante -->
+          <!-- Aquí pondrás opciones del juego -->
         </div>
       </div>
-
     </div>
-
+  
     <a href="index.html" class="boton-volver">Volver al inicio</a>
   </div>
 
+  <!-- =================== SCRIPT =================== -->
   <script>
     const fondo = document.getElementById('fondo');
     const cuadroColor = document.getElementById('cuadroColor');
     const bordeForma = document.getElementById('bordeForma');
     const preview = document.getElementById('preview');
 
+    const fuente = document.getElementById('fuente');
+    const tamanoCuadro = document.getElementById('tamanoCuadro');
+    const textoColor = document.getElementById('textoColor');
+    const sombraCuadro = document.getElementById('sombraCuadro');
+    const animacionCuadro = document.getElementById('animacionCuadro');
+
     function guardarPersonalizacion() {
       localStorage.setItem('colorFondo', fondo.value);
       localStorage.setItem('colorCuadro', cuadroColor.value);
       localStorage.setItem('bordeCuadro', bordeForma.value);
+      localStorage.setItem('fuentePagina', fuente.value);
+      localStorage.setItem('tamanoCuadro', tamanoCuadro.value);
+      localStorage.setItem('textoColor', textoColor.value);
+      localStorage.setItem('sombraCuadro', sombraCuadro.value);
+      localStorage.setItem('animacionCuadro', animacionCuadro.value);
     }
 
     fondo.addEventListener('input', () => {
@@ -89,32 +134,77 @@
       guardarPersonalizacion();
     });
 
+    fuente.addEventListener('change', () => {
+      document.body.style.fontFamily = fuente.value;
+      guardarPersonalizacion();
+    });
+
+    tamanoCuadro.addEventListener('change', () => {
+      preview.style.width = tamanoCuadro.value;
+      preview.style.height = tamanoCuadro.value;
+      guardarPersonalizacion();
+    });
+
+    textoColor.addEventListener('input', () => {
+      preview.style.color = textoColor.value;
+      guardarPersonalizacion();
+    });
+
+    sombraCuadro.addEventListener('change', () => {
+      preview.style.boxShadow = sombraCuadro.value;
+      guardarPersonalizacion();
+    });
+
+    animacionCuadro.addEventListener('change', () => {
+      preview.className = "preview-cuadro";
+      if (animacionCuadro.value === "fade") preview.classList.add("anim-fade");
+      if (animacionCuadro.value === "slide") preview.classList.add("anim-slide");
+      if (animacionCuadro.value === "zoom") preview.classList.add("anim-zoom");
+      guardarPersonalizacion();
+    });
+
     window.addEventListener('DOMContentLoaded', () => {
       if (localStorage.getItem('colorFondo')) {
         fondo.value = localStorage.getItem('colorFondo');
         document.body.style.background = fondo.value;
       }
-
       if (localStorage.getItem('colorCuadro')) {
         cuadroColor.value = localStorage.getItem('colorCuadro');
         preview.style.backgroundColor = cuadroColor.value;
       }
-
       if (localStorage.getItem('bordeCuadro')) {
         bordeForma.value = localStorage.getItem('bordeCuadro');
         preview.style.borderRadius = bordeForma.value;
       }
+      if (localStorage.getItem('fuentePagina')) {
+        document.body.style.fontFamily = localStorage.getItem('fuentePagina');
+        fuente.value = localStorage.getItem('fuentePagina');
+      }
+      if (localStorage.getItem('tamanoCuadro')) {
+        preview.style.width = localStorage.getItem('tamanoCuadro');
+        preview.style.height = localStorage.getItem('tamanoCuadro');
+        tamanoCuadro.value = localStorage.getItem('tamanoCuadro');
+      }
+      if (localStorage.getItem('textoColor')) {
+        preview.style.color = localStorage.getItem('textoColor');
+        textoColor.value = localStorage.getItem('textoColor');
+      }
+      if (localStorage.getItem('sombraCuadro')) {
+        preview.style.boxShadow = localStorage.getItem('sombraCuadro');
+        sombraCuadro.value = localStorage.getItem('sombraCuadro');
+      }
+      if (localStorage.getItem('animacionCuadro')) {
+        animacionCuadro.value = localStorage.getItem('animacionCuadro');
+      }
+    });
+
+    // Submenús con acordeón
+    document.querySelectorAll('.btn-submenu').forEach(boton => {
+      boton.addEventListener('click', () => {
+        const submenu = boton.nextElementSibling;
+        submenu.classList.toggle('active');
+      });
     });
   </script>
-<script>
-  document.querySelectorAll('.btn-submenu').forEach(boton => {
-    boton.addEventListener('click', () => {
-      const submenu = boton.nextElementSibling;
-      submenu.style.display = submenu.style.display === 'flex' ? 'none' : 'flex';
-    });
-  });
-</script>
-
-
 </body>
 </html>

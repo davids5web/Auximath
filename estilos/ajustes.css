@@ -1,101 +1,77 @@
 /* =============== RESET =============== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #e0f7fa, #e1bee7);
+  background: linear-gradient(145deg,#d0f0fc,#f5e0f8);
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
+  transition: background 0.5s ease;
 }
 
-/* =============== CONTENEDOR PRINCIPAL =============== */
+/* =============== CONTENEDOR PRINCIPAL (Glass moderno) =============== */
 .menu-config {
   width: 100%;
-  max-width: 800px;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  padding: 40px 30px;
+  max-width: 720px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(25px);
+  border-radius: 30px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  padding: 35px 25px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 25px;
   animation: fadeIn 0.6s ease;
+  border: 1px solid rgba(255,255,255,0.25);
 }
 
+/* Título con degradado elegante */
 .menu-config h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   text-align: center;
-  font-weight: bold;
-  background: linear-gradient(135deg, #7b1fa2, #2196f3);
-  -webkit-background-clip: text;
+  font-weight: 900;
+  background: linear-gradient(135deg,#8e24aa,#2196f3);
   -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
 }
 
-/* =============== BLOQUES DE CONFIG =============== */
+/* =============== BLOQUES DE CONFIGURACIÓN =============== */
 .config-bloque {
-  padding: 20px;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.35);
-  box-shadow: 0 4px 12px rgba(123,31,162,0.15);
-  transition: transform 0.2s ease;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.25);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-
 .config-bloque:hover {
   transform: translateY(-3px);
+  background: rgba(255,255,255,0.35);
 }
-
 .config-bloque label {
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-weight: 600;
   font-size: 1rem;
-  display: block;
-  color: #4a148c;
+  color: #5e35b1;
 }
-
-.config-bloque input,
-.config-bloque select {
+.config-bloque input, .config-bloque select {
   width: 100%;
   padding: 12px;
-  font-size: 1rem;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  outline: none;
-  background: rgba(255,255,255,0.6);
-  transition: all 0.3s ease;
-}
-
-.config-bloque input:hover,
-.config-bloque select:hover {
-  background: rgba(255,255,255,0.8);
-}
-
-.config-bloque input:focus,
-.config-bloque select:focus {
-  border-color: #7b1fa2;
-  box-shadow: 0 0 8px rgba(123,31,162,0.3);
-}
-
-/* Vista previa cuadro */
-.preview-cuadro {
-  margin-top: 15px;
-  background-color: #ce93d8;
-  color: white;
-  padding: 25px;
-  text-align: center;
-  font-weight: bold;
+  font-size: 0.97rem;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(33,150,243,0.25);
-  transition: all 0.3s ease;
-  width: 200px;
-  height: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  outline: none;
+  background: rgba(255,255,255,0.75);
+  transition: all 0.3s ease, box-shadow 0.3s ease;
+}
+.config-bloque input:hover, .config-bloque select:hover { background: rgba(255,255,255,0.9); }
+.config-bloque input:focus, .config-bloque select:focus {
+  border-color: #7b1fa2;
+  box-shadow: 0 0 10px rgba(123,31,162,0.2);
 }
 
 /* =============== BOTÓN VOLVER =============== */
@@ -104,101 +80,91 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, #2196f3, #7b1fa2);
+  background: linear-gradient(135deg,#2196f3,#8e24aa);
   color: white;
   text-decoration: none;
-  padding: 15px 30px;
-  border-radius: 30px;
-  font-size: 1.2rem;
-  font-weight: bold;
+  padding: 16px 32px;
+  border-radius: 35px;
+  font-size: 1.15rem;
+  font-weight: 800;
   width: fit-content;
   margin: 0 auto;
-  transition: 0.3s;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
 }
-
 .boton-volver:hover {
-  background: linear-gradient(135deg, #1976d2, #5e35b1);
-  transform: scale(1.05);
+  background: linear-gradient(135deg,#1976d2,#5e35b1);
+  transform: scale(1.07);
 }
 
 /* =============== SUBMENÚS =============== */
-.menu-desplegable {
-  margin-bottom: 20px;
-}
-
+.menu-desplegable { margin-bottom: 25px; }
 .btn-submenu {
-  background: linear-gradient(135deg, #ab47bc, #7e57c2);
+  background: linear-gradient(135deg,#ab47bc,#7e57c2);
   color: white;
-  font-weight: bold;
-  font-size: 1.1rem;
+  font-weight: 700;
+  font-size: 1.08rem;
   width: 100%;
   text-align: left;
-  padding: 15px;
+  padding: 16px;
   border: none;
-  border-radius: 12px;
+  border-radius: 20px;
   cursor: pointer;
-  transition: 0.3s;
-  margin-bottom: 10px;
+  transition: all 0.3s ease;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
-
 .btn-submenu:hover {
-  background: linear-gradient(135deg, #8e24aa, #5e35b1);
+  background: linear-gradient(135deg,#8e24aa,#5e35b1);
+  transform: scale(1.03);
 }
 
-/* Submenú con acordeón */
+/* Preview de cuadro moderno */
+.preview-cuadro {
+  margin-top: 14px;
+  background-color: #ce93d8;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(33,150,243,0.25);
+  transition: all 0.35s ease;
+  width: 180px;
+  height: 180px;
+  max-width: 100%;
+  font-size: 1rem;
+}
+/* Submenú acordeón elegante */
 .submenu-opciones {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, opacity 0.3s ease;
+  transition: all 0.5s ease;
   opacity: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 0 15px;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 12px;
+  gap: 12px;
+  padding: 0 20px;
 }
-
 .submenu-opciones.active {
-  max-height: 1000px;
+  max-height: 900px;
   opacity: 1;
-  padding: 15px;
+  padding: 20px;
 }
 
 /* =============== RESPONSIVE =============== */
 @media screen and (max-width: 768px) {
-  .menu-config {
-    padding: 20px 15px;
-  }
-
-  .boton-volver {
-    font-size: 1rem;
-    padding: 12px 24px;
-  }
-
-  .btn-submenu {
-    font-size: 1rem;
-    padding: 12px;
-  }
+  .menu-config { padding: 25px 18px; }
+  .boton-volver { font-size: 1.05rem; padding: 14px 28px; }
+  .btn-submenu { font-size: 1rem; padding: 14px; }
+  .preview-cuadro { width: 100%; height: 160px; font-size:0.9rem;}
 }
 
 /* =============== ANIMACIONES =============== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+@keyframes fadeIn { from{opacity:0; transform:translateY(-12px);} to{opacity:1; transform:translateY(0);} }
 .anim-fade { animation: fadeIn 1s ease; }
-
-@keyframes slideIn {
-  from { transform: translateX(-50px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
+@keyframes slideIn { from{transform:translateX(-40px);opacity:0;} to{transform:translateX(0);opacity:1;} }
 .anim-slide { animation: slideIn 0.8s ease; }
-
-@keyframes zoomIn {
-  from { transform: scale(0.7); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
+@keyframes zoomIn { from{transform:scale(0.75);opacity:0;} to{transform:scale(1);opacity:1;} }
 .anim-zoom { animation: zoomIn 0.8s ease; }
