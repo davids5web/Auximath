@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller de Razones Trigonométricas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .contenedor {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+    button {
+      background: #ffcc00;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    input {
+      padding: 8px;
+      border-radius: 6px;
+      border: none;
+      margin-top: 10px;
+      width: 80%;
+    }
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>Taller de Razones Trigonométricas</h2>
+    <p id="pregunta">Presiona "Nueva pregunta"</p>
+    <input type="number" id="respuesta" placeholder="Escribe tu respuesta">
+    <br>
+    <button onclick="verificar()">Verificar</button>
+    <button onclick="nuevaPregunta()">Nueva pregunta</button>
+    <p id="resultado"></p>
+  </div>
+
+  <script>
+    let angulo, razon, correcta;
+
+    function nuevaPregunta() {
+      const razones = ["sin", "cos", "tan"];
+      angulo = [30, 45, 60][Math.floor(Math.random()*3)];
+      razon = razones[Math.floor(Math.random()*razones.length)];
+
+      document.getElementById("pregunta").textContent =
+        `¿Cuál es el valor de ${razon}(${angulo}°)?`;
+
+      document.getElementById("resultado").textContent = "";
+      document.getElementById("respuesta").value = "";
+
+      // Valores exactos conocidos
+      const valores = {
+        "sin30": 0.5, "cos30": Math.sqrt(3)/2, "tan30": Math.sqrt(3)/3,
+        "sin45": Math.sqrt(2)/2, "cos45": Math.sqrt(2)/2, "tan45": 1,
+        "sin60": Math.sqrt(3)/2, "cos60": 0.5, "tan60": Math.sqrt(3)
+      };
+
+      correcta = valores[razon+angulo];
+    }
+
+    function verificar() {
+      const respuesta = parseFloat(document.getElementById("respuesta").value);
+      if (isNaN(respuesta)) {
+        document.getElementById("resultado").textContent = "Ingresa un número válido.";
+        return;
+      }
+
+      // Tolerancia por decimales
+      if (Math.abs(respuesta - correcta) < 0.01) {
+        document.getElementById("resultado").textContent = "✅ Correcto";
+      } else {
+        document.getElementById("resultado").textContent =
+          `❌ Incorrecto. La respuesta era ≈ ${correcta.toFixed(3)}`;
+      }
+    }
+  </script>
+</body>
+</html>
