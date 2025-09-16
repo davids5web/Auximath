@@ -10,37 +10,49 @@
       background: linear-gradient(135deg, #1e3c72, #2a5298);
       color: #fff;
       margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      padding: 20px;
     }
     .contenedor {
+      max-width: 800px;
+      margin: auto;
       background: rgba(0,0,0,0.6);
       padding: 20px;
       border-radius: 12px;
+    }
+    h2 {
       text-align: center;
-      max-width: 400px;
-      width: 90%;
+    }
+    .pregunta {
+      background: rgba(255,255,255,0.1);
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 10px;
+    }
+    .opcion {
+      display: block;
+      margin: 8px 0;
+      padding: 10px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .opcion:hover {
+      background: rgba(255,255,255,0.4);
     }
     button {
       background: #ffcc00;
       border: none;
       padding: 10px 20px;
-      margin-top: 10px;
+      margin-top: 15px;
       border-radius: 8px;
       cursor: pointer;
-    }
-    input {
-      padding: 8px;
-      border-radius: 6px;
-      border: none;
-      margin-top: 10px;
-      width: 80%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
     #resultado {
-      margin-top: 15px;
+      margin-top: 20px;
+      text-align: center;
       font-weight: bold;
     }
   </style>
@@ -48,53 +60,78 @@
 <body>
   <div class="contenedor">
     <h2>Taller de Razones Trigonométricas</h2>
-    <p id="pregunta">Presiona "Nueva pregunta"</p>
-    <input type="number" id="respuesta" placeholder="Escribe tu respuesta">
-    <br>
+    <div id="preguntas"></div>
     <button onclick="verificar()">Verificar</button>
-    <button onclick="nuevaPregunta()">Nueva pregunta</button>
     <p id="resultado"></p>
   </div>
 
   <script>
-    let angulo, razon, correcta;
+    const valores = {
+      "sin30": 0.5, "cos30": Math.sqrt(3)/2, "tan30": Math.sqrt(3)/3,
+      "sin45": Math.sqrt(2)/2, "cos45": Math.sqrt(2)/2, "tan45": 1,
+      "sin60": Math.sqrt(3)/2, "cos60": 0.5, "tan60": Math.sqrt(3)
+    };
 
-    function nuevaPregunta() {
-      const razones = ["sin", "cos", "tan"];
-      angulo = [30, 45, 60][Math.floor(Math.random()*3)];
-      razon = razones[Math.floor(Math.random()*razones.length)];
+    const razones = ["sin", "cos", "tan"];
+    const angulos = [30, 45, 60];
 
-      document.getElementById("pregunta").textContent =
-        `¿Cuál es el valor de ${razon}(${angulo}°)?`;
+    function generarPreguntas(num=5) {
+      const contenedor = document.getElementById("preguntas");
+      contenedor.innerHTML = "";
 
-      document.getElementById("resultado").textContent = "";
-      document.getElementById("respuesta").value = "";
+      for (let i=0; i<num; i++) {
+        let angulo = angulos[Math.floor(Math.random()*angulos.length)];
+        let razon = razones[Math.floor(Math.random()*razones.length)];
+        let clave = razon+angulo;
+        let correcta = valores[clave];
 
-      // Valores exactos conocidos
-      const valores = {
-        "sin30": 0.5, "cos30": Math.sqrt(3)/2, "tan30": Math.sqrt(3)/3,
-        "sin45": Math.sqrt(2)/2, "cos45": Math.sqrt(2)/2, "tan45": 1,
-        "sin60": Math.sqrt(3)/2, "cos60": 0.5, "tan60": Math.sqrt(3)
-      };
+        // Generar opciones con distractores
+        let opciones = [correcta];
+        while(opciones.length < 4) {
+          let random = (Math.random()*Math.sqrt(3)).toFixed(2);
+          if (!opciones.includes(parseFloat(random))) {
+            opciones.push(parseFloat(random));
+          }
+        }
 
-      correcta = valores[razon+angulo];
+        // Mezclar opciones
+        opciones = opciones.sort(() => Math.random() - 0.5);
+
+        let div = document.createElement("div");
+        div.classList.add("pregunta");
+        div.innerHTML = `<p><b>${i+1}.</b> ¿Cuál es el valor de ${razon}(${angulo}°)?</p>`;
+
+        opciones.forEach(op => {
+          div.innerHTML += `
+            <label class="opcion">
+              <input type="radio" name="preg${i}" value="${op}">
+              ${op.toFixed(3)}
+            </label>
+          `;
+        });
+
+        div.setAttribute("data-correcta", correcta.toFixed(3));
+        contenedor.appendChild(div);
+      }
     }
 
     function verificar() {
-      const respuesta = parseFloat(document.getElementById("respuesta").value);
-      if (isNaN(respuesta)) {
-        document.getElementById("resultado").textContent = "Ingresa un número válido.";
-        return;
-      }
+      const preguntas = document.querySelectorAll(".pregunta");
+      let correctas = 0;
 
-      // Tolerancia por decimales
-      if (Math.abs(respuesta - correcta) < 0.01) {
-        document.getElementById("resultado").textContent = "✅ Correcto";
-      } else {
-        document.getElementById("resultado").textContent =
-          `❌ Incorrecto. La respuesta era ≈ ${correcta.toFixed(3)}`;
-      }
+      preguntas.forEach(p => {
+        let seleccion = p.querySelector("input[type=radio]:checked");
+        if (seleccion && Math.abs(parseFloat(seleccion.value) - parseFloat(p.dataset.correcta)) < 0.01) {
+          correctas++;
+        }
+      });
+
+      document.getElementById("resultado").textContent = 
+        `Respuestas correctas: ${correctas} de ${preguntas.length}`;
     }
+
+    // Inicializar con preguntas
+    generarPreguntas(5);
   </script>
 </body>
 </html>
