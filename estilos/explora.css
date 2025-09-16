@@ -1,0 +1,120 @@
+:root{ 
+  --bg:#0f1724; 
+  --card:#0b1220; 
+  --muted:#9aa4b2; 
+  --primary:#7c3aed; 
+  --radius:16px; 
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; 
+} 
+*{box-sizing:border-box} 
+html,body{
+  min-height: 100vh;
+  margin:0;
+  background: var(--bg);
+  color: white;
+  
+} 
+a{color:inherit;text-decoration:none} 
+.container{
+  max-width:1100px;
+  margin:36px auto;
+  padding:20px
+} 
+header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap
+} 
+.logo{
+  width:56px;
+  height:56px;
+  border-radius:12px; 
+  background:linear-gradient(135deg,var(--primary),#2dd4bf); 
+  display:flex;
+  align-items:center;
+  justify-content:center; 
+  font-weight:800;
+  color:#031124
+} 
+h1{font-size:22px;margin:0} 
+p.lead{margin:0;color:var(--muted)} 
+.card-link{ 
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); 
+  padding:24px;
+  border-radius:var(--radius); 
+  border:1px solid rgba(255,255,255,0.03); 
+  transition:transform .25s ease, background .25s ease; 
+  cursor:pointer;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center; 
+  text-decoration:none 
+} 
+.card-link:hover{
+  transform:translateY(-6px);
+  background:linear-gradient(180deg, rgba(124,58,237,0.15), rgba(45,212,191,0.05))
+} 
+.icon{font-size:40px;margin-bottom:12px} 
+.muted{color:var(--muted);font-size:14px} 
+.grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:20px;
+  margin-top:28px
+} 
+
+
+/* ===================== FOOTER ===================== */ 
+footer { 
+  background-color: #222; /* color de fondo */ 
+  color: #fff; /* color del texto */ 
+  text-align: center; /* centra el contenido */ 
+  font-size: 14px; /* tamaño de fuente */ 
+  margin-top: 50px; /* espacio respecto al contenido */ 
+  border-top: 2px solid #444; 
+  border-radius: 10px; 
+  padding: 20px 10px; 
+} 
+
+footer a { 
+  color: #00bcd4; /* enlaces con color llamativo */ 
+  text-decoration: none; 
+  transition: color 0.3s ease; 
+} 
+
+footer a:hover { 
+  color: #ff4081; /* cambia de color al pasar el mouse */ 
+} 
+
+.footer-container { 
+  max-width: 1200px; 
+  margin: auto; 
+  display: flex; 
+  justify-content: space-between; 
+  flex-wrap: wrap; 
+  gap: 20px; 
+} 
+
+.footer-section { 
+  flex: 1 1 100px; /* mínimo 250px, crece de forma flexible */ 
+} 
+
+.footer-section h4 { 
+  margin-bottom: 10px; 
+  font-size: 16px; 
+  color: #00bcd4; 
+} 
+
+.footer-bottom { 
+  font-size: 12px; 
+  color: #aaa; 
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr; /* una sola columna en pantallas pequeñas */
+  }
+}

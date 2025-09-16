@@ -5,16 +5,56 @@ body {
   background: linear-gradient(145deg,#d0f0fc,#f5e0f8);
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column; /* ✅ coloca todo en columna */
+  justify-content: space-between; /* ✅ empuja el footer hacia abajo */
   padding: 20px;
-  transition: background 0.5s ease;
+  transition: background 1s ease;
 }
+
+
+
+/* Encabezado visual */
+.page-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.page-header h1 span {
+  background: linear-gradient(135deg,#2196f3,#8e24aa);
+  padding: 12px 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  color: white;
+}
+
+.decoracion {
+  max-width: 120px;
+  display: block;
+  margin: 15px auto;
+  opacity: 0.9;
+}
+
+/* Tarjetas más llamativas */
+.menu-config section.config-bloque {
+  background: linear-gradient(135deg, #ffffff, #f0f9ff);
+  border: 2px solid #cce7ff;
+  border-radius: 15px;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.menu-config section.config-bloque:hover {
+  transform: scale(1.02);
+}
+
 
 /* =============== CONTENEDOR PRINCIPAL (Glass moderno) =============== */
 .menu-config {
   width: 100%;
-  max-width: 720px;
+  margin:auto;
+  max-width: 800px;
   background: rgba(255,255,255,0.2);
   backdrop-filter: blur(25px);
   border-radius: 30px;
@@ -27,6 +67,7 @@ body {
   border: 1px solid rgba(255,255,255,0.25);
 }
 
+
 /* Título con degradado elegante */
 .menu-config h2 {
   font-size: 2.2rem;
@@ -36,18 +77,19 @@ body {
   -webkit-text-fill-color: transparent;
   margin-bottom: 15px;
   letter-spacing: 1px;
+  border-radius: 10px;
 }
 
 /* =============== BLOQUES DE CONFIGURACIÓN =============== */
 .config-bloque {
-  padding: 14px 18px;
+  padding: 20px 25px;
   border-radius: 16px;
   background: rgba(255,255,255,0.25);
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 20px;
 }
 .config-bloque:hover {
   transform: translateY(-3px);
@@ -98,7 +140,7 @@ body {
 }
 
 /* =============== SUBMENÚS =============== */
-.menu-desplegable { margin-bottom: 25px; }
+.menu-desplegable { margin-bottom: 20px; }
 .btn-submenu {
   background: linear-gradient(135deg,#ab47bc,#7e57c2);
   color: white;
@@ -137,21 +179,33 @@ body {
   font-size: 1rem;
 }
 /* Submenú acordeón elegante */
+.menu-desplegable .opcion-principal {
+  margin-bottom: 25px; /* separa cada opción principal */
+}
+
 .submenu-opciones {
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.5s ease;
-  opacity: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 0 20px;
+  gap: 20px;          /* separación entre bloques */
+  padding: 20px;       /* espacio interno */
+  background: transparent;  /* quitar el fondo */
+  border-radius: 0;        /* quitar borde redondeado extra */
+  transition: all 0.5s ease;
+  max-height: 2000px;
+  overflow: hidden;
 }
-.submenu-opciones.active {
-  max-height: 900px;
-  opacity: 1;
-  padding: 20px;
+
+
+.config-bloque {
+  padding: 18px 25px;   /* más espacio dentro del bloque */
+  gap: 15px;             /* separación label-input */
+  background: rgba(255,255,255,0.25);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
+
+
+
 
 /* =============== RESPONSIVE =============== */
 @media screen and (max-width: 768px) {
@@ -168,3 +222,62 @@ body {
 .anim-slide { animation: slideIn 0.8s ease; }
 @keyframes zoomIn { from{transform:scale(0.75);opacity:0;} to{transform:scale(1);opacity:1;} }
 .anim-zoom { animation: zoomIn 0.8s ease; }
+
+/* ===================== FOOTER ===================== */
+footer {
+  background-color: #222; /* color de fondo */
+  color: #fff; /* color del texto */
+  text-align: center; /* centra el contenido */
+  font-size: 14px; /* tamaño de fuente */
+  margin-top: 0; /* espacio respecto al contenido */
+  border-top: 2px solid #444;
+  border-radius: 10px;
+  padding: 20px 10px;
+}
+
+footer a {
+  color: #00bcd4; /* enlaces con color llamativo */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ff4081; /* cambia de color al pasar el mouse */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1 1 100px; /* mínimo 250px, crece de forma flexible */
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #00bcd4;
+}
+
+.footer-bottom {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.submenu-opciones {
+  display: none;
+  padding-left: 15px;
+  margin-top: 10px;
+}
+
+.submenu-opciones.active {
+  display: block;
+}
+.menu-desplegable .opcion-principal {
+  margin-bottom: 30px; /* separa Página principal y Juego */
+}

@@ -201,3 +201,50 @@ nav.glass-menu {
   border-color: rgba(255, 255, 255, 0.5);
 }
 
+/* ===================== FOOTER ===================== */
+footer {
+  background-color: #222; /* color de fondo */
+  color: #fff; /* color del texto */
+  text-align: center; /* centra el contenido */
+  font-size: 14px; /* tamaño de fuente */
+  margin-top: 0; /* espacio respecto al contenido */
+  border-top: 2px solid #444;
+  border-radius: 10px;
+  padding: 20px 10px;
+}
+
+footer a {
+  color: #00bcd4; /* enlaces con color llamativo */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ff4081; /* cambia de color al pasar el mouse */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1 1 100px; /* mínimo 250px, crece de forma flexible */
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #00bcd4;
+}
+
+.footer-bottom {
+  font-size: 12px;
+  color: #aaa;
+}
+
+
