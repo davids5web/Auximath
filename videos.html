@@ -1,52 +1,109 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Videos y Ejemplos - Razones Trigonométricas</title>
-  <link rel="stylesheet" href="estilos/stylevi.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="estilos/stylevi.css">
 </head>
 <body>
-
-  <button class="toggle-btn" onclick="toggleMenu()">☰</button>
-
-  <div class="menu-lateral" id="menuLateral">
-    <h2>Menú</h2>
-    <ul class="menu">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="taller.html">taller</a></li>
-      <li><a href="juego.html">juego</a></li>
-      <li><a href="ajustes.html">ajustes</a></li>
-    </ul>
-  </div>
-
-  <div class="contenido">
-    <header>
+  <header class="titulo-principal">
+    <div class="titulo-inner">
+      <div class="titulo-icon">∠</div>
       <h1>Videos y Ejemplos</h1>
-      <p>Explora diferentes recursos visuales para entender las razones trigonométricas.</p>
-    </header>
+    </div>
+    <p>Explora recursos visuales y consejos para dominar las razones trigonométricas.</p>
+  </header>
+ <!-- Glass Menu (esquina derecha superior) -->
+  <nav class="glass-menu">
+    <ul>
+      <li style="--i:#a955ff;--j:#ea51ff;">
+        <a href="ajustes.html">
+          <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+          <span class="title">Ajustes</span>
+        </a>
+      </li>
+      <li style="--i:#56CCF2;--j:#2F80ED;">
+        <a href="actividadf.html">
+          <span class="icon"><ion-icon name="list-outline"></ion-icon></span>
+          <span class="title">A. final</span>
+        </a>
+      </li>
+      <li style="--i:#ff9966;--j:#ff5e62;">
+        <a href="puntos.html">
+          <span class="icon"><ion-icon name="star-outline"></ion-icon></span>
+          <span class="title">Puntos</span>
+        </a>
+      </li>
 
-    <section class="videos-ejemplos">
+      <li style="--i:#ff9966;--j:#ff5e62;">
+        <a href="index.html">
+          <span class="icon"><ion-icon name="star-outline"></ion-icon></span>
+          <span class="title">Inicio</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="container">
+    <!-- Columna izquierda: Videos -->
+    <div class="videos-section">
+      <h2>Videos</h2>
       <div class="video">
-        <iframe src="https://www.youtube.com/embed/wEjkFvW8O30" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/wEjkFvW8O30" allowfullscreen></iframe>
         <p>Introducción a las razones trigonométricas</p>
       </div>
       <div class="video">
-        <iframe src="https://www.youtube.com/embed/SfZ3GsHmyXI" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/SfZ3GsHmyXI" allowfullscreen></iframe>
         <p>Ejemplo práctico con triángulo rectángulo</p>
       </div>
-    </section>
+    </div>
+
+    <!-- Columna derecha: Ejemplos, consejos y links -->
+    <div class="ejemplos">
+      <div class="cuadro">
+        <h3>Ejemplo resuelto</h3>
+        <p>Si en un triángulo rectángulo el cateto opuesto mide 3 y la hipotenusa 5, entonces:</p>
+        <p><strong>sen(θ) = 3/5</strong></p>
+      </div>
+
+      <div class="cuadro">
+        <h3>Consejo</h3>
+        <p>Recuerda siempre identificar cuál es el cateto opuesto, adyacente e hipotenusa antes de aplicar las razones trigonométricas.</p>
+      </div>
+
+      <div class="cuadro">
+        <h3>Links útiles</h3>
+        <ul>
+          <li><a href="https://es.khanacademy.org/math/geometry/hs-geo-trig" target="_self">Khan Academy - Trigonometría</a></li>
+          <li><a href="https://www.universoformulas.com/matematicas/trigonometria/" target="_self">Universo Fómulas</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 
+  <!-- Footer -->
   <footer>
-    Página creada por David · 2025
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Sobre nosotros</h4>
+        <p>Proyecto AUXIMATH</p>
+        <p>aprendiendo trigonometría de forma interactiva.</p>
+      </div>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h4>Enlaces</h4>
+          <a href="#">Proceso</a><br>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <p>Email: auximath@ejemplo.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 AUXIMATH | Todos los derechos reservados
+    </div>
   </footer>
-
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menuLateral');
-      menu.classList.toggle('visible');
-    }
-  </script>
 </body>
+
 </html>

@@ -13,7 +13,7 @@
 <body>
   <!-- HEADER -->
   <header>
-    <h1>📚 Talleres de Razones Trigonométricas</h1>
+    <h1> Talleres de Razones Trigonométricas</h1>
     <p>Accede a cada taller de manera dinámica y visual</p>
   </header>
 
@@ -51,5 +51,83 @@
       </div>
     </section>
   </main>
+
+  <script>
+    // Personalización desde localStorage
+    window.addEventListener('DOMContentLoaded', () => {
+      const colorCuadro     = localStorage.getItem('colorCuadro');
+      const bordeCuadro     = localStorage.getItem('bordeCuadro');
+      const fuente          = localStorage.getItem('fuentePagina');
+      const textoColor      = localStorage.getItem('textoColor');
+      const sombraCuadro    = localStorage.getItem('sombraCuadro');
+      const animacionCuadro = localStorage.getItem('animacionCuadro');
+      const tamanoCuadro    = localStorage.getItem('tamanoCuadro');
+
+      const cuadros = document.querySelectorAll('.cuadro-interno, .cuadro, .card, .item-cuadro');
+
+      if (fondo) document.body.style.background = fondo;
+      if (fuente) document.body.style.fontFamily = fuente;
+      if (textoColor) {
+        document.body.style.color = textoColor;
+        cuadros.forEach(cuadro => { cuadro.style.color = textoColor; });
+      }
+      if (colorCuadro)  cuadros.forEach(c => c.style.backgroundColor = colorCuadro);
+      if (bordeCuadro)  cuadros.forEach(c => c.style.borderRadius    = bordeCuadro);
+      if (sombraCuadro) cuadros.forEach(c => c.style.boxShadow       = sombraCuadro);
+      if (tamanoCuadro) cuadros.forEach(c => { c.style.width = tamanoCuadro; c.style.height = tamanoCuadro; });
+
+      // Keyframes
+      (function ensureKeyframes() {
+        if (document.getElementById('aux-anim-kf')) return;
+        const style = document.createElement('style');
+        style.id = 'aux-anim-kf';
+        style.textContent = `
+          @keyframes auxFadeIn  { from {opacity:0; transform: translateY(8px);} to {opacity:1; transform:none;} }
+          @keyframes auxSlideIn { from {opacity:0; transform: translateX(-20px);} to {opacity:1; transform:none;} }
+          @keyframes auxZoomIn  { from {opacity:0; transform: scale(0.9);} to {opacity:1; transform: scale(1);} }
+        `;
+        document.head.appendChild(style);
+      })();
+
+      if (animacionCuadro) {
+        cuadros.forEach(c => {
+          c.style.animation = 'none';
+          if (animacionCuadro === 'fade') {
+            c.style.animation = 'auxFadeIn 0.6s ease both';
+          } else if (animacionCuadro === 'slide') {
+            c.style.animation = 'auxSlideIn 0.6s ease both';
+          } else if (animacionCuadro === 'zoom') {
+            c.style.animation = 'auxZoomIn 0.6s ease both';
+            c.style.transition = 'transform 0.2s ease';
+            c.addEventListener('mouseenter', () => { c.style.transform = 'scale(1.03)'; });
+            c.addEventListener('mouseleave', () => { c.style.transform = 'scale(1)'; });
+          }
+        });
+      }
+    });
+    </script>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Sobre nosotros</h4>
+        <p>Proyecto AUXIMATH</p>
+        <p>aprendiendo trigonometría de forma interactiva.</p>
+      </div>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h4>Enlaces</h4>
+          <a href="#">Proceso</a><br>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <p>Email: auximath@ejemplo.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 AUXIMATH | Todos los derechos reservados
+    </div>
+  </footer>
 </body>
 </html>

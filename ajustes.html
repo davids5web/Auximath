@@ -6,10 +6,16 @@
   <link rel="stylesheet" href="estilos/ajustes.css">
 </head>
 <body>
+  <!-- Encabezado visual -->
+<header class="page-header">
+  <h1><span>⚡ Ajustes AUXIMATH ⚡</span></h1>
+
+</header>
   <div class="menu-config">
     <h2>Menú de ajustes</h2>
 
     <div class="menu-desplegable">
+
       <!-- 📂 Página principal -->
       <div class="opcion-principal">
         <button class="btn-submenu">📂 Página principal</button>
@@ -17,14 +23,14 @@
 
           <!-- Color fondo -->
           <div class="config-bloque">
-            <label for="fondo">🎨 Color de fondo de la página</label>
+            <label for="fondo">🎨 Color de fondo</label>
             <input type="color" id="fondo">
           </div>
 
           <!-- Color cuadros -->
           <div class="config-bloque">
-            <label for="cuadroColor">🟪 Color de los cuadros de la página principal</label>
-            <input type="color" id="cuadroColor" value="#ce93d8">
+            <label for="cuadroColor">🖌️ Color de los cuadros</label>
+            <input type="color" id="cuadroColor" value="#3498db">
           </div>
 
           <!-- Forma cuadros -->
@@ -38,7 +44,7 @@
             <div class="preview-cuadro" id="preview">Vista previa del cuadro</div>
           </div>
 
-          <!-- 🔹 Nuevas opciones -->
+          <!-- Fuente -->
           <div class="config-bloque">
             <label for="fuente">🔤 Fuente de la página</label>
             <select id="fuente">
@@ -49,6 +55,7 @@
             </select>
           </div>
 
+          <!-- Tamaño cuadros -->
           <div class="config-bloque">
             <label for="tamanoCuadro">📏 Tamaño de los cuadros</label>
             <select id="tamanoCuadro">
@@ -58,11 +65,13 @@
             </select>
           </div>
 
+          <!-- Color texto -->
           <div class="config-bloque">
             <label for="textoColor">🖍️ Color del texto en los cuadros</label>
             <input type="color" id="textoColor" value="#ffffff">
           </div>
 
+          <!-- Sombra -->
           <div class="config-bloque">
             <label for="sombraCuadro">🌑 Sombra de los cuadros</label>
             <select id="sombraCuadro">
@@ -71,6 +80,7 @@
             </select>
           </div>
 
+          <!-- Animación -->
           <div class="config-bloque">
             <label for="animacionCuadro">✨ Animación de los cuadros</label>
             <select id="animacionCuadro">
@@ -83,15 +93,10 @@
         </div>
       </div>
 
-      <!-- 🎮 Juego -->
-       <div class="opcion-principal">
-        <button class="btn-submenu">🎮 Juego</button>
-        <div class="submenu-opciones">
-          <!-- Aquí pondrás opciones del juego -->
-        </div>
-      </div>
-    </div>
-  
+    
+
+    </div> <!-- cierre menú desplegable -->
+
     <a href="index.html" class="boton-volver">Volver al inicio</a>
   </div>
 
@@ -206,5 +211,30 @@
       });
     });
   </script>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Sobre nosotros</h4>
+        <p>Proyecto AUXIMATH</p>
+        <p>aprendiendo trigonometría de forma interactiva.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Enlaces</h4>
+        <a href="#">Proceso</a><br>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <p>Email: auximath@ejemplo.com</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 AUXIMATH | Todos los derechos reservados
+    </div>
+  </footer>
 </body>
 </html>

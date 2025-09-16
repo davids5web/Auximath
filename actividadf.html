@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actividad Final - Razones Trigonométricas</title>
+  <link rel="stylesheet" href="estilos/actividadf.css">
+</head>
+<body>
+  <header>
+    <h1>Actividad Final – Razones Trigonométricas</h1>
+    <p>Responde todas las preguntas y haz clic en <b>Finalizar</b> para ver tu resultado.</p>
+  </header>
+<nav class="glass-menu">
+    <ul>
+      <li style="--i:#a955ff;--j:#ea51ff;">
+        <a href="ajustes.html">
+          <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+          <span class="title">Ajustes</span>
+        </a>
+      </li>
+      <li style="--i:#56CCF2;--j:#2F80ED;">
+        <a href="actividadf.html">
+          <span class="icon"><ion-icon name="list-outline"></ion-icon></span>
+          <span class="title">Activida final</span>
+        </a>
+      </li>
+      <li style="--i:#ff9966;--j:#ff5e62;">
+        <a href="puntos.html">
+          <span class="icon"><ion-icon name="star-outline"></ion-icon></span>
+          <span class="title">Puntos</span>
+        </a>
+      </li>
+
+      <li style="--i:#ff9966;--j:#ff5e62;">
+        <a href="index.html">
+          <span class="icon"><ion-icon name="star-outline"></ion-icon></span>
+          <span class="title">incio</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <main>
+    <form id="quizForm">
+      <!-- Pregunta 1 -->
+      <div class="pregunta">
+        <h3>1. ¿Cuál es la razón trigonométrica opuesta / hipotenusa?</h3>
+        <label><input type="radio" name="q1" value="seno"> Seno</label>
+        <label><input type="radio" name="q1" value="coseno"> Coseno</label>
+        <label><input type="radio" name="q1" value="tangente"> Tangente</label>
+      </div>
+
+      <!-- Pregunta 2 -->
+      <div class="pregunta">
+        <h3>2. Si un ángulo es de 45°, ¿cuál es el valor de su seno aproximado?</h3>
+        <label><input type="radio" name="q2" value="0.5"> 0.5</label>
+        <label><input type="radio" name="q2" value="0.707"> 0.707</label>
+        <label><input type="radio" name="q2" value="1"> 1</label>
+      </div>
+
+      <!-- Pregunta 3 -->
+      <div class="pregunta">
+        <h3>3. ¿Qué relación define la tangente?</h3>
+        <label><input type="radio" name="q3" value="opuesto/adyacente"> Opuesto / Adyacente</label>
+        <label><input type="radio" name="q3" value="adyacente/hipotenusa"> Adyacente / Hipotenusa</label>
+        <label><input type="radio" name="q3" value="hipotenusa/opuesto"> Hipotenusa / Opuesto</label>
+      </div>
+
+      <button type="submit" id="finalizarBtn">Finalizar</button>
+    </form>
+
+    <section id="resultado" class="oculto"></section>
+  </main>
+
+  <script src="js/actividad.js"></script>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Sobre nosotros</h4>
+        <p>Proyecto AUXIMATH</p>
+        <p>aprendiendo trigonometría de forma interactiva.</p>
+      </div>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h4>Enlaces</h4>
+          <a href="#">Proceso</a><br>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <p>Email: auximath@ejemplo.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 AUXIMATH | Todos los derechos reservados
+    </div>
+  </footer>
+</body>
+</html>
