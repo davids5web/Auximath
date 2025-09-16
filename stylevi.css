@@ -1,0 +1,319 @@
+:root{
+  --bg: #f4f4f4;
+  --surface: #ffffff;
+  --primary: #2196f3;
+  --primary-dark: #004d7a;
+  --accent: #e53935; /* rojo para líneas */
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(0,0,0,.08);
+  --max-width: 1200px;
+  --gap: 20px;
+}
+
+*{ box-sizing: border-box; margin:0; padding:0; }
+html,body{ height:100%; }
+body{
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: #222;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+}
+
+/* ===== TÍTULO DESTACADO ===== */
+.titulo-principal{
+  max-width: var(--max-width);
+  margin: 24px auto;
+  padding: 18px;
+  border-radius: var(--radius);
+  background: linear-gradient(90deg, rgba(33,150,243,1), rgba(0,77,122,1));
+  color: #fff;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.titulo-principal h1{
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  display:inline-block;
+  vertical-align:middle;
+}
+.titulo-principal .titulo-inner{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.titulo-icon{
+  width:38px;
+  height:38px;
+  display:inline-grid;
+  place-items:center;
+  background: rgba(255,255,255,0.12);
+  border-radius:8px;
+  font-weight:700;
+}
+
+/* subtítulo */
+.titulo-principal p{
+  margin-top:6px;
+  color: rgba(255,255,255,0.92);
+  font-size: 0.98rem;
+}
+
+/* ===== CONTENEDOR PRINCIPAL (dos columnas) ===== */
+/* Soporta .container o .contenedor por si cambias el HTML */
+.container, .contenedor{
+  max-width: var(--max-width);
+  margin: 18px auto;
+  padding: 0 16px 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gap);
+  align-items:start;
+}
+
+/* Vertical red separator: aplicado como borde a la columna de videos */
+.videos-section, .videos {
+  background: var(--surface);
+  border-radius: calc(var(--radius) - 4px);
+  padding: 14px;
+  box-shadow: var(--shadow);
+  /* línea vertical roja a la derecha para separar secciones */
+  border-right: 4px solid var(--accent);
+}
+
+/* defensiva: si usas .videos (sin -section) también aplica */
+.videos-section h2, .videos h2 { margin-bottom:12px; }
+
+/* Si tu HTML usa .videos (varias variantes) soportado */
+.videos, .videos-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Cada tarjeta de video */
+.video{
+  background: transparent;
+  padding: 8px 0 12px 0;
+  border-bottom: 3px solid var(--accent); /* línea roja debajo */
+}
+.video:last-child{ border-bottom: none; }
+
+/* iframe reducido */
+.video iframe{
+  width: 100%;
+  height: 180px; /* tamaño más compacto */
+  border: 0;
+  border-radius: 8px;
+  display:block;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+/* título/descripcion bajo el video */
+.video p{
+  margin-top:10px;
+  font-weight:600;
+  color:#111;
+}
+
+/* ===== COLUMNA DERECHA: ejemplos / consejos / links ===== */
+/* Soporta .ejemplos, .sidebar, .aside, .derecha */
+.ejemplos, .sidebar, aside, .derecha {
+  display:flex;
+  flex-direction:column;
+  gap: 14px;
+}
+
+/* cuadro individual */
+.cuadro, .bloque {
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: var(--shadow);
+  border: 2px solid rgba(33,150,243,0.12);
+}
+.cuadro h3, .bloque h3{
+  margin-bottom:8px;
+  color: var(--primary-dark);
+  font-size:1.05rem;
+}
+.cuadro p, .bloque p{
+  font-size:0.95rem;
+  color:#222;
+}
+.cuadro a, .bloque a{
+  color: var(--primary);
+  text-decoration: none;
+  font-weight:600;
+}
+.cuadro a:hover, .bloque a:hover{ text-decoration: underline; }
+
+/* listas internas */
+.cuadro ul, .bloque ul{ padding-left: 18px; margin-top:6px; }
+.cuadro li, .bloque li{ margin-bottom:6px; }
+
+/* ===== DIVIDER HORIZONTAL OPCIONAL ===== */
+.divider {
+  height:4px;
+  background: linear-gradient(90deg, rgba(33,150,243,0.6), rgba(229,57,53,0.9));
+  border-radius: 3px;
+  margin: 18px auto;
+  max-width: var(--max-width);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: #222; /* color de fondo */
+  color: #fff; /* color del texto */
+  text-align: center; /* centra el contenido */
+  font-size: 14px; /* tamaño de fuente */
+  margin-top: 0; /* espacio respecto al contenido */
+  border-top: 2px solid #444;
+  border-radius: 10px;
+  padding: 20px 10px;
+}
+
+footer a {
+  color: #00bcd4; /* enlaces con color llamativo */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ff4081; /* cambia de color al pasar el mouse */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1 1 100px; /* mínimo 250px, crece de forma flexible */
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #00bcd4;
+}
+
+.footer-bottom {
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px){
+  .container, .contenedor{
+    grid-template-columns: 1fr;
+    padding-bottom: 30px;
+  }
+  /* quitar borde vertical en móvil */
+  .videos-section, .videos{ border-right: none; }
+  /* añadir separación entre secciones en móvil */
+  .videos-section{ margin-bottom: 8px; }
+  .video iframe{ height: 160px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; animation:none !important; }
+}
+
+/* ===== Compatibilidades extra (por si hay nombres distintos en tu HTML) ===== */
+.main-videos { /* alternativa */
+  background: var(--surface);
+  padding:14px;
+  border-radius:10px;
+  box-shadow:var(--shadow);
+}
+.right-column { /* alternativa */
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+/* ===================== GLASS MENU ===================== */
+.glass-menu {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 20px 0;
+}
+
+.glass-menu ul {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.glass-menu ul li {
+  position: relative;
+  list-style: none;
+  width:50px;
+  height: 50px;
+  transition: width 1s ease, background 1s ease, box-shadow 0.5s ease;
+  overflow: hidden;
+  border-radius: 60px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.25);
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  background-size: 200% 200%;
+}
+
+.glass-menu ul li:hover {
+  width: 200px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* aquí está el degradado que quieres ver al abrir */
+  background-image: linear-gradient(135deg, #ff7eb3 0%, #ff758c 50%, #ffd1a9 100%);
+  background-position: right center;
+  border-color: rgba(255,255,255,0.35);
+}
+
+.glass-menu ul li a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-decoration: none;
+  padding-left: 10px;
+}
+
+.glass-menu ul li .icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.75em;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.glass-menu ul li:hover .icon {
+  transform: scale(1.15) rotate(6deg);
+}
+
+.glass-menu ul li .title {
+  color: #fff;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.glass-menu ul li:hover .title {
+  transform: scale(1);
+  opacity: 1;
+  margin-left: 10px;
+}

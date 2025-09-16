@@ -1,0 +1,191 @@
+/* Fuente y fondo */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal */
+.contenedor {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+/* Título */
+h1 {
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #ffd700;
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* Encabezados */
+thead {
+  background: #ffcc00;
+  color: #000;
+}
+
+thead th {
+  padding: 12px;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+/* Filas */
+tbody tr {
+  background: rgba(255, 255, 255, 0.1);
+  transition: background 0.3s;
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+tbody tr:hover {
+  background: rgba(255, 215, 0, 0.4);
+}
+
+tbody td {
+  padding: 10px;
+  font-size: 0.95em;
+}
+
+.glass-menu {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 20px 0;
+}
+
+.glass-menu ul {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.glass-menu ul li {
+  position: relative;
+  list-style: none;
+  width:50px;
+  height: 50px;
+  transition: width 1s ease, background 1s ease, box-shadow 0.5s ease;
+  overflow: hidden;
+  border-radius: 60px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.25);
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  background-size: 200% 200%;
+}
+
+.glass-menu ul li:hover {
+  width: 200px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* aquí está el degradado que quieres ver al abrir */
+  background-image: linear-gradient(135deg, #ff7eb3 0%, #ff758c 50%, #ffd1a9 100%);
+  background-position: right center;
+  border-color: rgba(255,255,255,0.35);
+}
+
+.glass-menu ul li a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-decoration: none;
+  padding-left: 10px;
+}
+
+.glass-menu ul li .icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.75em;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.glass-menu ul li:hover .icon {
+  transform: scale(1.15) rotate(6deg);
+}
+
+.glass-menu ul li .title {
+  color: #fff;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.glass-menu ul li:hover .title {
+  transform: scale(1);
+  opacity: 1;
+  margin-left: 10px;
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+  background-color: #222; /* color de fondo */
+  color: #fff; /* color del texto */
+  text-align: center; /* centra el contenido */
+  font-size: 14px; /* tamaño de fuente */
+  margin-top: 0; /* espacio respecto al contenido */
+  border-top: 2px solid #444;
+  border-radius: 10px;
+  padding: 20px 10px;
+}
+
+footer a {
+  color: #00bcd4; /* enlaces con color llamativo */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ff4081; /* cambia de color al pasar el mouse */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1 1 100px; /* mínimo 250px, crece de forma flexible */
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #00bcd4;
+}
+
+.footer-bottom {
+  font-size: 12px;
+  color: #aaa;
+}
+
