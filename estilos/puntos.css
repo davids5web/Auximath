@@ -10,9 +10,8 @@ body {
 /* Contenedor principal */
 .contenedor {
   max-width: 1000px;
-  width: 95%; /* se adapta a pantallas pequeñas */
-  margin: 20px auto;
-  padding: 15px;
+  margin: 40px auto;
+  padding: 20px;
   background: rgba(0,0,0,0.6);
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.5);
@@ -22,17 +21,15 @@ body {
 /* Título */
 h1 {
   margin-bottom: 20px;
-  font-size: 2rem;
+  font-size: 2em;
   color: #ffd700;
-  word-wrap: break-word;
 }
 
 /* Tabla */
 table {
   width: 100%;
   border-collapse: collapse;
-  overflow-x: auto;
-  display: block; /* permite scroll horizontal en pantallas chicas */
+  overflow: hidden;
   border-radius: 10px;
 }
 
@@ -43,10 +40,9 @@ thead {
 }
 
 thead th {
-  padding: 10px;
-  font-size: 0.9rem;
+  padding: 12px;
+  font-size: 1em;
   text-transform: uppercase;
-  text-align: left;
 }
 
 /* Filas */
@@ -64,28 +60,27 @@ tbody tr:hover {
 }
 
 tbody td {
-  padding: 8px;
-  font-size: 0.9rem;
+  padding: 10px;
+  font-size: 0.95em;
 }
 
-/* MENU GLASS */
 .glass-menu {
   display: flex;
   justify-content: center;
   margin: 10px 0 20px 0;
-  flex-wrap: wrap; /* permite que se acomode en pantallas pequeñas */
 }
 
 .glass-menu ul {
+  position: relative;
   display: flex;
   flex-direction: row;
-  gap: 15px;
+  gap: 20px;
   padding: 0;
   margin: 0;
-  flex-wrap: wrap;
 }
 
 .glass-menu ul li {
+  position: relative;
   list-style: none;
   width:50px;
   height: 50px;
@@ -101,8 +96,8 @@ tbody td {
 }
 
 .glass-menu ul li:hover {
-  width: 180px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* aquí está el degradado que quieres ver al abrir */
   background-image: linear-gradient(135deg, #ff7eb3 0%, #ff758c 50%, #ffd1a9 100%);
   background-position: right center;
   border-color: rgba(255,255,255,0.35);
@@ -117,12 +112,12 @@ tbody td {
 }
 
 .glass-menu ul li .icon {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.75em;
   color: #fff;
   transition: transform 0.3s ease;
 }
@@ -133,9 +128,9 @@ tbody td {
 
 .glass-menu ul li .title {
   color: #fff;
-  font-size: 1rem;
+  font-size: 1.1em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   transform: scale(0);
   opacity: 0;
   transition: transform 0.4s ease, opacity 0.3s ease;
@@ -150,23 +145,24 @@ tbody td {
 
 /* ===================== FOOTER ===================== */
 footer {
-  background-color: #222;
-  color: #fff;
-  text-align: center;
-  font-size: 0.9rem;
+  background-color: #222; /* color de fondo */
+  color: #fff; /* color del texto */
+  text-align: center; /* centra el contenido */
+  font-size: 14px; /* tamaño de fuente */
+  margin-top: 0; /* espacio respecto al contenido */
   border-top: 2px solid #444;
   border-radius: 10px;
-  padding: 15px 10px;
+  padding: 20px 10px;
 }
 
 footer a {
-  color: #00bcd4;
+  color: #00bcd4; /* enlaces con color llamativo */
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 footer a:hover {
-  color: #ff4081;
+  color: #ff4081; /* cambia de color al pasar el mouse */
 }
 
 .footer-container {
@@ -175,54 +171,21 @@ footer a:hover {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 20px;
 }
 
 .footer-section {
-  flex: 1 1 200px;
+  flex: 1 1 100px; /* mínimo 250px, crece de forma flexible */
 }
 
 .footer-section h4 {
   margin-bottom: 10px;
-  font-size: 1rem;
+  font-size: 16px;
   color: #00bcd4;
 }
 
 .footer-bottom {
-  font-size: 0.8rem;
+  font-size: 12px;
   color: #aaa;
 }
 
-/* ===================== MEDIA QUERIES ===================== */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-  thead th, tbody td {
-    font-size: 0.85rem;
-    padding: 6px;
-  }
-  .glass-menu ul {
-    gap: 10px;
-  }
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .contenedor {
-    padding: 10px;
-  }
-  h1 {
-    font-size: 1.2rem;
-  }
-  .glass-menu ul li:hover {
-    width: 140px; /* menos expansión en móviles */
-  }
-  .glass-menu ul li .title {
-    font-size: 0.85rem;
-  }
-  }
