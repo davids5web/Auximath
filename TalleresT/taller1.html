@@ -1,67 +1,275 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Taller 1</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Taller 1: Introducción</title>
   <style>
-    body{
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      background-color: antiquewhite;
-      color: aliceblue;
+    /* --- General --- */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f3f4f6;
+      color: #333;
       margin: 0;
       padding: 0;
     }
 
-    header{
-      background: linear-gradient(to right, #ec4);
+    /* --- Header --- */
+    header {
+      background: linear-gradient(to right, #ec4899, #8b5cf6);
       color: white;
-      padding: 1.5rem 0;
+      padding: 20px 0;
       text-align: center;
-      box-shadow: 0 4px 6px rgb(red, green, blue);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
-    header h1{
-      font-size: 2rem;
-      margin: 0;
-      
 
+    header h1 {
+      font-size: 28px;
+      margin: 0;
     }
+
+    /* --- Contenedor Principal --- */
     main {
-      max-width: 768px;
-      margin: auto;
-      padding:2.5rem 1rem;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
-    section{
-      background-color: aliceblue;
-      border-radius: 1rem;
-      box-shadow: 0 4px 6px rgb(red, green, blue);
-      padding: 1.5rem;
-      margin-bottom: 2rem;
 
+    section {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-bottom: 20px;
     }
-    h2 {
-      font-size: 2rem;
-      margin: 0;
-      margin-bottom: 1rem;
+
+    section h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #b91c1c;
     }
-    img{
-      max-width: 100%;
-      border-radius: 0.5rem;
-      box-shadow: 0 2px 4px rgb(red, green, blue);
+
+    p {
+      line-height: 1.6;
     }
-    .grid {
+
+    /* --- Imágenes --- */
+    .img-grid {
       display: grid;
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
     }
-    .grid-cols-1 {grid-template-columns: 1fr;}
-    @media (min-width: 640px) {
-      .sm\grid-cols-2 { grid-template-columns: repeat(2,1fr);
-      .sm\grid-cols-2 { grid-template-columns: repeat(3,1fr);
-      }
+
+    .img-grid img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    /* --- Preguntas --- */
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .options label {
+      display: block;
+      margin: 6px 0;
+      padding: 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 1px solid #ddd;
+      transition: background 0.3s;
+    }
+
+    .options label:hover {
+      background: #f0f0f0;
+    }
+
+    .feedback {
+      margin-top: 8px;
+      font-weight: bold;
+      display: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    .correct {
+      color: green;
+      background: #d1fae5;
+    }
+
+    .incorrect {
+      color: red;
+      background: #fee2e2;
+    }
+
+    /* --- Video --- */
+    iframe {
+      width: 100%;
+      height: 350px;
+      border-radius: 12px;
+      border: none;
     }
   </style>
 </head>
 <body>
-  
+  <header>
+    <h1>Taller 1: Introducción</h1>
+  </header>
+
+  <main>
+    <!-- Tema -->
+    <section>
+      <h2>Tema</h2>
+      <p>Conceptos básicos de seno, coseno y tangente.</p>
+      <div class="img-grid">
+        <img src="imagenes/seno.png" alt="Seno">
+        <img src="imagenes/cose.png" alt="Coseno">
+        <img src="imagenes/tan.png" alt="Tangente">
+      </div>
+    </section>
+
+    <!-- Explicación -->
+    <section>
+      <h2>Explicación</h2>
+      <p>En un triángulo rectángulo se definen seno, coseno y tangente como razones entre los catetos y la hipotenusa. Estas relaciones son fundamentales para la trigonometría y se aplican en diversas áreas como la física, la arquitectura y la ingeniería.</p>
+      <div class="img-grid">
+        <img src="imagenes/razones-trigonométricas-en-el-triángulo-rectángulo-1.jpg" alt="Razones trigonométricas">
+        <img src="imagenes/ag.png" alt="Ángulo y lados">
+      </div>
+    </section>
+
+    <!-- Ejemplo -->
+    <section>
+      <h2>Ejemplo resuelto</h2>
+      <p>En el siguiente ejemplo se muestra cómo calcular los valores de seno, coseno y tangente en un triángulo rectángulo dado:</p>
+      <div class="img-grid">
+        <img src="imagenes/resolucion-de-triangulos-3.webp" alt="Ejemplo resuelto">
+      </div>
+    </section>
+
+    <!-- Actividades -->
+    <section>
+      <h2>Actividades</h2>
+
+      <!-- Pregunta 1 -->
+      <div class="question">
+        <p>¿Qué es el seno de un ángulo en un triángulo rectángulo?</p>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> a) Cateto opuesto / Hipotenusa</label>
+          <label><input type="radio" name="q1" value="b"> b) Cateto adyacente / Hipotenusa</label>
+          <label><input type="radio" name="q1" value="c"> c) Cateto opuesto / Cateto adyacente</label>
+        </div>
+        <div class="feedback" id="f1"></div>
+      </div>
+
+      <!-- Pregunta 2 -->
+      <div class="question">
+        <p>¿Qué es el coseno de un ángulo en un triángulo rectángulo?</p>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> a) Cateto opuesto / Hipotenusa</label>
+          <label><input type="radio" name="q2" value="b"> b) Cateto adyacente / Hipotenusa</label>
+          <label><input type="radio" name="q2" value="c"> c) Cateto opuesto / Cateto adyacente</label>
+        </div>
+        <div class="feedback" id="f2"></div>
+      </div>
+
+      <!-- Pregunta 3 -->
+      <div class="question">
+        <p>¿Qué es la tangente de un ángulo en un triángulo rectángulo?</p>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> a) Cateto opuesto / Hipotenusa</label>
+          <label><input type="radio" name="q3" value="b"> b) Cateto adyacente / Hipotenusa</label>
+          <label><input type="radio" name="q3" value="c"> c) Cateto opuesto / Cateto adyacente</label>
+        </div>
+        <div class="feedback" id="f3"></div>
+      </div>
+
+      <!-- Pregunta 4 -->
+      <div class="question">
+        <p>¿Cuál es el valor de sin(90°)?</p>
+        <div class="options">
+          <label><input type="radio" name="q4" value="a"> a) 0</label>
+          <label><input type="radio" name="q4" value="b"> b) 1</label>
+          <label><input type="radio" name="q4" value="c"> c) 0.5</label>
+        </div>
+        <div class="feedback" id="f4"></div>
+      </div>
+
+      <!-- Pregunta 5 -->
+      <div class="question">
+        <p>En un triángulo rectángulo, la hipotenusa siempre es…</p>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> a) El lado más largo</label>
+          <label><input type="radio" name="q5" value="b"> b) El cateto adyacente</label>
+          <label><input type="radio" name="q5" value="c"> c) El lado más corto</label>
+        </div>
+        <div class="feedback" id="f5"></div>
+      </div>
+    </section>
+
+    <!-- Video -->
+    <section>
+      <h2>Video recomendado</h2>
+      <iframe src="https://www.youtube.com/embed/4YcOZJd2fX0" allowfullscreen></iframe>
+    </section>
+  </main>
+
+  <script>
+    // Respuestas correctas
+    const correctAnswers = {
+      q1: "a",
+      q2: "b",
+      q3: "c",
+      q4: "b",
+      q5: "a"
+    };
+
+    // Retroalimentación
+    const feedbackText = {
+      q1: {
+        a: "✔ Correcto. Seno = cateto opuesto / hipotenusa.",
+        b: "✘ Incorrecto. Eso corresponde al coseno.",
+        c: "✘ Incorrecto. Eso corresponde a la tangente."
+      },
+      q2: {
+        a: "✘ Incorrecto. Eso corresponde al seno.",
+        b: "✔ Correcto. Coseno = cateto adyacente / hipotenusa.",
+        c: "✘ Incorrecto. Eso corresponde a la tangente."
+      },
+      q3: {
+        a: "✘ Incorrecto. Eso corresponde al seno.",
+        b: "✘ Incorrecto. Eso corresponde al coseno.",
+        c: "✔ Correcto. Tangente = cateto opuesto / cateto adyacente."
+      },
+      q4: {
+        a: "✘ Incorrecto. El seno de 90° no es 0.",
+        b: "✔ Correcto. sin(90°) = 1.",
+        c: "✘ Incorrecto. 0.5 corresponde a sin(30°)."
+      },
+      q5: {
+        a: "✔ Correcto. La hipotenusa siempre es el lado más largo.",
+        b: "✘ Incorrecto. El cateto adyacente no siempre es el más largo.",
+        c: "✘ Incorrecto. La hipotenusa nunca es el lado más corto."
+      }
+    };
+
+    // Manejo de selección
+    document.querySelectorAll("input[type=radio]").forEach(input => {
+      input.addEventListener("change", function() {
+        const name = this.name;
+        const feedback = document.getElementById("f" + name.slice(1));
+        feedback.style.display = "block";
+        if (this.value === correctAnswers[name]) {
+          feedback.textContent = feedbackText[name][this.value];
+          feedback.className = "feedback correct";
+        } else {
+          feedback.textContent = feedbackText[name][this.value];
+          feedback.className = "feedback incorrect";
+        }
+      });
+    });
+  </script>
 </body>
 </html>

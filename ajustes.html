@@ -80,6 +80,7 @@
             </select>
           </div>
 
+
           <!-- Animación -->
           <div class="config-bloque">
             <label for="animacionCuadro">✨ Animación de los cuadros</label>
@@ -90,6 +91,7 @@
               <option value="none" selected>Sin animación</option>
             </select>
           </div>
+          <button onclick="resetAjustes()">Restaurar valores originales</button>
         </div>
       </div>
 
@@ -118,7 +120,6 @@
       localStorage.setItem('colorCuadro', cuadroColor.value);
       localStorage.setItem('bordeCuadro', bordeForma.value);
       localStorage.setItem('fuentePagina', fuente.value);
-      localStorage.setItem('tamanoCuadro', tamanoCuadro.value);
       localStorage.setItem('textoColor', textoColor.value);
       localStorage.setItem('sombraCuadro', sombraCuadro.value);
       localStorage.setItem('animacionCuadro', animacionCuadro.value);
@@ -144,11 +145,7 @@
       guardarPersonalizacion();
     });
 
-    tamanoCuadro.addEventListener('change', () => {
-      preview.style.width = tamanoCuadro.value;
-      preview.style.height = tamanoCuadro.value;
-      guardarPersonalizacion();
-    });
+   
 
     textoColor.addEventListener('input', () => {
       preview.style.color = textoColor.value;
@@ -185,11 +182,7 @@
         document.body.style.fontFamily = localStorage.getItem('fuentePagina');
         fuente.value = localStorage.getItem('fuentePagina');
       }
-      if (localStorage.getItem('tamanoCuadro')) {
-        preview.style.width = localStorage.getItem('tamanoCuadro');
-        preview.style.height = localStorage.getItem('tamanoCuadro');
-        tamanoCuadro.value = localStorage.getItem('tamanoCuadro');
-      }
+      
       if (localStorage.getItem('textoColor')) {
         preview.style.color = localStorage.getItem('textoColor');
         textoColor.value = localStorage.getItem('textoColor');
@@ -210,6 +203,13 @@
         submenu.classList.toggle('active');
       });
     });
+  
+function resetAjustes() {
+    localStorage.clear(); // Borra todo
+    window.location.reload(); // Recarga la página para aplicar valores por defecto
+}
+
+
   </script>
 
   <!-- Footer -->
