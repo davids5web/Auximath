@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller 1: Introducción</title>
+  <style>
+    /* ===================== GLASS MENU ===================== */
+.glass-menu {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 20px;
+}
+
+.glass-menu ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.glass-menu ul li {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 60px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+  transition: width 1s ease, background 1s ease, box-shadow 0.5s ease;
+}
+
+.glass-menu ul li:hover {
+  width: 200px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(135deg, #ff7eb3 0%, #ff758c 50%, #ffd1a9 100%);
+}
+
+.glass-menu ul li a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-decoration: none;
+  padding-left: 10px;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.75em;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.glass-menu ul li:hover .icon {
+  transform: scale(1.15) rotate(6deg);
+}
+
+.title {
+  color: #fff;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transform: scale(0);
+  opacity: 0;
+  white-space: nowrap;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.glass-menu ul li:hover .title {
+  transform: scale(1);
+  opacity: 1;
+  margin-left: 10px;
+}
+
+    /* === GENERAL === */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #cecfcf;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(to right, #ec4899, #8b5cf6);
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    section h2 {
+      font-size: 22px;
+      color: #b91c1c;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    /* === IMÁGENES === */
+    .img-grid {
+      display: grid;
+      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 15px;
+    }
+
+    .img-grid img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    /* === PREGUNTAS === */
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .options label {
+      display: block;
+      margin: 6px 0;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .options label:hover {
+      background: #f0f0f0;
+    }
+
+    .feedback {
+      margin-top: 8px;
+      font-weight: bold;
+      display: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    .correct {
+      color: green;
+      background: #d1fae5;
+    }
+
+    .incorrect {
+      color: red;
+      background: #fee2e2;
+    }
+
+    /* === VIDEO === */
+    iframe {
+      width: 100%;
+      height: 350px;
+      border-radius: 12px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Taller 1: Introducción</h1>
+  </header>
+ <!-- Menú principal -->
+    <nav class="glass-menu">
+      <ul>
+        <li style="--i:#a955ff;--j:#ea51ff;">
+          <a href="ajustes.html">
+            <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+            <span class="title">Ajustes</span>
+          </a>
+        </li>
+        <li style="--i:#56CCF2;--j:#2F80ED;">
+          <a href="actividadf.html">
+            <span class="icon"><ion-icon name="list-outline"></ion-icon></span>
+            <span class="title">A. final</span>
+          </a>
+        </li>
+        <li style="--i:#ff9966;--j:#ff5e62;">
+          <a href="taller.html">
+            <span class="icon"><ion-icon name="star-outline"></ion-icon></span>
+            <span class="title">Talleres</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  <main>
+    <!-- Tema -->
+    <section>
+      <h2>Tema</h2>
+      <p>Conceptos básicos de seno, coseno y tangente.</p>
+      <div class="img-grid">
+        <img src="imagenes/seno.png" alt="Seno">
+        <img src="imagenes/cose.png" alt="Coseno">
+        <img src="imagenes/tan.png" alt="Tangente">
+      </div>
+    </section>
+
+    <!-- Explicación -->
+    <section>
+      <h2>Explicación</h2>
+      <p>En un triángulo rectángulo, el seno, coseno y tangente se definen como razones entre los catetos y la hipotenusa. Estas relaciones son fundamentales en trigonometría y se aplican en física, arquitectura e ingeniería.</p>
+      <div class="img-grid">
+        <img src="imagenes/razones-trigonométricas-en-el-triángulo-rectángulo-1.jpg" alt="Razones trigonométricas">
+        <img src="imagenes/ag.png" alt="Ángulo y lados">
+      </div>
+    </section>
+
+    <!-- Ejemplo -->
+    <section>
+      <h2>Ejemplo resuelto</h2>
+      <p>Ejemplo de cómo calcular seno, coseno y tangente en un triángulo rectángulo:</p>
+      <div class="img-grid">
+        <img src="imagenes/resolucion-de-triangulos-3.webp" alt="Ejemplo resuelto">
+      </div>
+    </section>
+
+    <!-- Actividades -->
+    <section>
+      <h2>Actividades</h2>
+
+      <div class="question">
+        <p>¿Qué es el seno de un ángulo en un triángulo rectángulo?</p>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> a) Cateto opuesto / Hipotenusa</label>
+          <label><input type="radio" name="q1" value="b"> b) Cateto adyacente / Hipotenusa</label>
+          <label><input type="radio" name="q1" value="c"> c) Cateto opuesto / Cateto adyacente</label>
+        </div>
+        <div class="feedback" id="f1"></div>
+      </div>
+
+      <div class="question">
+        <p>¿Qué es el coseno de un ángulo en un triángulo rectángulo?</p>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> a) Cateto opuesto / Hipotenusa</label>
+          <label><input type="radio" name="q2" value="b"> b) Cateto adyacente / Hipotenusa</label>
+          <label><input type="radio" name="q2" value="c"> c) Cateto opuesto / Cateto adyacente</label>
+        </div>
+        <div class="feedback" id="f2"></div>
+      </div>
+
+      <div class="question">
+        <p>¿Qué es la tangente de un ángulo en un triángulo rectángulo?</p>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> a) Cateto opuesto / Hipotenusa</label>
+          <label><input type="radio" name="q3" value="b"> b) Cateto adyacente / Hipotenusa</label>
+          <label><input type="radio" name="q3" value="c"> c) Cateto opuesto / Cateto adyacente</label>
+        </div>
+        <div class="feedback" id="f3"></div>
+      </div>
+
+      <div class="question">
+        <p>¿Cuál es el valor de sin(90°)?</p>
+        <div class="options">
+          <label><input type="radio" name="q4" value="a"> a) 0</label>
+          <label><input type="radio" name="q4" value="b"> b) 1</label>
+          <label><input type="radio" name="q4" value="c"> c) 0.5</label>
+        </div>
+        <div class="feedback" id="f4"></div>
+      </div>
+
+      <div class="question">
+        <p>En un triángulo rectángulo, la hipotenusa siempre es…</p>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> a) El lado más largo</label>
+          <label><input type="radio" name="q5" value="b"> b) El cateto adyacente</label>
+          <label><input type="radio" name="q5" value="c"> c) El lado más corto</label>
+        </div>
+        <div class="feedback" id="f5"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const correctAnswers = {
+      q1: "a", q2: "b", q3: "c", q4: "b", q5: "a"
+    };
+
+    const feedbackText = {
+      q1: { a: "✔ Correcto. Seno = cateto opuesto / hipotenusa.", b: "✘ Incorrecto. Eso es coseno.", c: "✘ Incorrecto. Eso es tangente." },
+      q2: { a: "✘ Incorrecto. Eso es seno.", b: "✔ Correcto. Coseno = cateto adyacente / hipotenusa.", c: "✘ Incorrecto. Eso es tangente." },
+      q3: { a: "✘ Incorrecto. Eso es seno.", b: "✘ Incorrecto. Eso es coseno.", c: "✔ Correcto. Tangente = cateto opuesto / cateto adyacente." },
+      q4: { a: "✘ Incorrecto. sin(90°) no es 0.", b: "✔ Correcto. sin(90°) = 1.", c: "✘ Incorrecto. 0.5 es sin(30°)." },
+      q5: { a: "✔ Correcto. La hipotenusa es el lado más largo.", b: "✘ Incorrecto.", c: "✘ Incorrecto." }
+    };
+
+    document.querySelectorAll("input[type=radio]").forEach(input => {
+      input.addEventListener("change", function() {
+        const name = this.name;
+        const feedback = document.getElementById("f" + name.slice(1));
+        feedback.style.display = "block";
+        feedback.textContent = feedbackText[name][this.value];
+        feedback.className = "feedback " + (this.value === correctAnswers[name] ? "correct" : "incorrect");
+      });
+    });
+  </script>
+</body>
+</html>

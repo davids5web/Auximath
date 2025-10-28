@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Práctico: Resolviendo Razones Trigonométricas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f7ff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #004080;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #003366;
+    }
+
+    .ejercicio {
+      background-color: #eef4ff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+
+    .paso {
+      display: none;
+      background-color: #f9fcff;
+      border-left: 5px solid #004080;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #004080;
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #002a5c;
+    }
+
+    img {
+      max-width: 100%;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+
+    .retro {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .correcta {
+      color: green;
+    }
+
+    .incorrecta {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Taller Práctico: Resolviendo Razones Trigonométricas Paso a Paso</h1>
+</header>
+
+<main>
+  <section>
+    <h2>Introducción</h2>
+    <p>
+      En este taller aprenderás a resolver problemas reales con las razones trigonométricas: 
+      <b>seno, coseno y tangente</b>.  
+      Para ello seguiremos un método paso a paso para entender cómo usar las fórmulas en diferentes situaciones.
+    </p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Triangle_with_notations_2.svg" alt="Triángulo rectángulo con lados">
+  </section>
+
+  <section class="ejercicio" id="e1">
+    <h3>Ejercicio 1: Calcular el cateto opuesto</h3>
+    <p>
+      En un triángulo rectángulo, el ángulo A mide 45° y la hipotenusa mide 10 cm.  
+      Calcula el cateto opuesto.
+    </p>
+    <button onclick="mostrarPasos('p1', 1)">Mostrar Paso 1</button>
+    <div class="paso" id="p1">
+      <p><b>Paso 1:</b> Identificamos la razón trigonométrica adecuada.</p>
+      <p>Como tenemos el ángulo y la hipotenusa, y queremos el cateto opuesto, usamos el <b>seno</b>:</p>
+      <p>sen(A) = cateto opuesto / hipotenusa</p>
+      <button onclick="mostrarPasos('p2', 2)">Siguiente paso</button>
+    </div>
+
+    <div class="paso" id="p2">
+      <p><b>Paso 2:</b> Sustituimos los valores conocidos.</p>
+      <p>sen(45°) = cateto opuesto / 10</p>
+      <p>0.707 = cateto opuesto / 10</p>
+      <button onclick="mostrarPasos('p3', 3)">Siguiente paso</button>
+    </div>
+
+    <div class="paso" id="p3">
+      <p><b>Paso 3:</b> Despejamos el cateto opuesto:</p>
+      <p>cateto opuesto = 0.707 × 10 = <b>7.07 cm</b></p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Right_triangle_sine.svg" alt="Ejemplo seno triángulo">
+    </div>
+  </section>
+
+  <section class="ejercicio" id="e2">
+    <h3>Ejercicio 2: Calcular el cateto adyacente</h3>
+    <p>
+      En un triángulo rectángulo, el ángulo B mide 30° y la hipotenusa mide 12 cm.  
+      Calcula el cateto adyacente.
+    </p>
+    <button onclick="mostrarPasos('p4', 4)">Mostrar Paso 1</button>
+    <div class="paso" id="p4">
+      <p><b>Paso 1:</b> Usamos el coseno porque relaciona cateto adyacente e hipotenusa:</p>
+      <p>cos(B) = cateto adyacente / hipotenusa</p>
+      <button onclick="mostrarPasos('p5', 5)">Siguiente paso</button>
+    </div>
+
+    <div class="paso" id="p5">
+      <p><b>Paso 2:</b> Sustituimos los valores conocidos.</p>
+      <p>cos(30°) = cateto adyacente / 12</p>
+      <p>0.866 = cateto adyacente / 12</p>
+      <button onclick="mostrarPasos('p6', 6)">Siguiente paso</button>
+    </div>
+
+    <div class="paso" id="p6">
+      <p><b>Paso 3:</b> Despejamos el cateto adyacente:</p>
+      <p>cateto adyacente = 0.866 × 12 = <b>10.39 cm</b></p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Right_triangle_cosine.svg" alt="Ejemplo coseno triángulo">
+    </div>
+  </section>
+
+  <section class="ejercicio" id="e3">
+    <h3>Ejercicio 3: Calcular la altura usando tangente</h3>
+    <p>
+      Un observador se encuentra a 20 m de la base de un edificio. El ángulo de elevación es de 35°.  
+      Calcula la altura del edificio (ignora la altura del observador).
+    </p>
+    <button onclick="mostrarPasos('p7', 7)">Mostrar Paso 1</button>
+    <div class="paso" id="p7">
+      <p><b>Paso 1:</b> Usamos la tangente, que relaciona cateto opuesto (altura) y cateto adyacente (distancia):</p>
+      <p>tan(θ) = altura / distancia</p>
+      <button onclick="mostrarPasos('p8', 8)">Siguiente paso</button>
+    </div>
+
+    <div class="paso" id="p8">
+      <p><b>Paso 2:</b> Sustituimos los valores:</p>
+      <p>tan(35°) = altura / 20</p>
+      <p>0.700 = altura / 20</p>
+      <button onclick="mostrarPasos('p9', 9)">Siguiente paso</button>
+    </div>
+
+    <div class="paso" id="p9">
+      <p><b>Paso 3:</b> Despejamos la altura:</p>
+      <p>altura = 0.700 × 20 = <b>14 m</b></p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Tangent_triangle.svg" alt="Ejemplo tangente edificio">
+    </div>
+  </section>
+
+  <section class="ejercicio" id="auto">
+    <h3>Verificación rápida</h3>
+    <p>Si sen(θ) = 0.6 y la hipotenusa mide 15 cm, ¿cuánto mide el cateto opuesto?</p>
+    <input type="number" id="respuesta" placeholder="Ingresa el valor en cm">
+    <button onclick="verificar()">Verificar</button>
+    <p class="retro" id="retro"></p>
+  </section>
+
+</main>
+
+<script>
+function mostrarPasos(id, n) {
+  document.getElementById(id).style.display = "block";
+  window.scrollTo({ top: document.getElementById(id).offsetTop - 100, behavior: 'smooth' });
+}
+
+function verificar() {
+  const valor = parseFloat(document.getElementById("respuesta").value);
+  const retro = document.getElementById("retro");
+  const correcto = 0.6 * 15; // 9 cm
+  if (Math.abs(valor - correcto) < 0.5) {
+    retro.textContent = "✔ Correcto. El cateto opuesto mide aproximadamente 9 cm.";
+    retro.className = "retro correcta";
+  } else {
+    retro.textContent = "✖ Incorrecto. Recuerda: cateto opuesto = sen(θ) × hipotenusa = 0.6 × 15 = 9 cm.";
+    retro.className = "retro incorrecta";
+  }
+}
+</script>
+
+</body>
+</html>

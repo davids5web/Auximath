@@ -4,22 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Videos y Ejemplos - AUXIMATH</title>
+
+  <!-- Estilos -->
   <link rel="stylesheet" href="estilos/stylevi.css">
+
+  <!-- Iconos -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
 
-  <!-- TITULO PRINCIPAL -->
+  <!-- Título principal -->
   <header class="titulo-principal">
     <div class="titulo-inner">
       <div class="titulo-icon">∠</div>
       <h1>Videos y Ejemplos</h1>
     </div>
-    <p>Explora recursos visuales y consejos para dominar las razones trigonométricas.</p>
+    <p>Explora recursos visuales, ejemplos y consejos prácticos para dominar las razones trigonométricas.</p>
   </header>
 
-  <!-- GLASS MENU -->
+  <!-- Menú principal -->
   <nav class="glass-menu">
     <ul>
       <li style="--i:#a955ff;--j:#ea51ff;">
@@ -49,46 +53,68 @@
     </ul>
   </nav>
 
-  <!-- CONTENEDOR PRINCIPAL -->
-  <div class="container">
+  <!-- Contenedor principal -->
+  <main class="container">
 
-    <!-- COLUMNA IZQUIERDA: VIDEOS -->
-    <div class="videos-section">
+    <!-- Sección de videos -->
+    <section class="videos-section">
       <h2>Videos</h2>
+
       <div class="video">
-        <iframe src="https://www.youtube.com/embed/wEjkFvW8O30" allowfullscreen></iframe>
-        <p>Introducción a las razones trigonométricas</p>
+        <iframe src="https://www.youtube.com/embed/CRg5jQRj1Hg" allowfullscreen title="Razones Trigonométricas | Hallar un lado | Ejemplo 1"></iframe>
+        <p>Aplicación de las razones trigonométricas para encontrar la medida de un lado en un triángulo rectángulo.</p>
       </div>
+
       <div class="video">
-        <iframe src="https://www.youtube.com/embed/SfZ3GsHmyXI" allowfullscreen></iframe>
-        <p>Ejemplo práctico con triángulo rectángulo</p>
-      </div>
-    </div>
-
-    <!-- COLUMNA DERECHA: EJEMPLOS / CONSEJOS / LINKS -->
-    <div class="ejemplos">
-      <div class="cuadro">
-        <h3>Ejemplo Resuelto</h3>
-        <p>Si en un triángulo rectángulo el cateto opuesto mide 3 y la hipotenusa 5, entonces:</p>
-        <p><strong>sen(θ) = 3/5</strong></p>
+        <iframe src="https://www.youtube.com/embed/Bejsscaz4Eg" allowfullscreen title="Razones Trigonométricas de Ángulos Notables I"></iframe>
+        <p>Explicación de las razones trigonométricas de ángulos notables como 30°, 45° y 60°.</p>
       </div>
 
-      <div class="cuadro">
-        <h3>Consejo</h3>
-        <p>Recuerda siempre identificar cuál es el cateto opuesto, adyacente e hipotenusa antes de aplicar las razones trigonométricas.</p>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/cep6F4SCVZ0" allowfullscreen title="¿Qué son las razones trigonométricas?"></iframe>
+        <p>Introducción a las razones trigonométricas y su aplicación en triángulos rectángulos.</p>
       </div>
+    </section>
 
-      <div class="cuadro">
-        <h3>Links útiles</h3>
+    <!-- Consejos -->
+    <section class="cuadro">
+      <h3>Consejos de Estudio</h3>
+      <ul>
+        <li>Practica dibujando triángulos y marcando los lados correctamente.</li>
+        <li>Usa la calculadora en modo grados o radianes según el ejercicio.</li>
+        <li>Dibuja siempre el triángulo antes de iniciar cualquier operación.</li>
+        <li>Aplica las razones en problemas cotidianos (sombras, rampas, pendientes).</li>
+        <li>Memoriza el SOHCAHTOA:</li>
         <ul>
-          <li><a href="https://youtu.be/bBBcKPEx0N4?si=oFLv2S6p4lJhaK0Ma></li>
-          <li><a href="https://www.universoformulas.com/matematicas/trigonometria/" target="_blank">Universo Fómulas</a></li>
+          <li>SOH: Seno = Opuesto / Hipotenusa</li>
+          <li>CAH: Coseno = Adyacente / Hipotenusa</li>
+          <li>TOA: Tangente = Opuesto / Adyacente</li>
         </ul>
-      </div>
-    </div>
-  </div>
+      </ul>
+    </section>
 
-  <!-- FOOTER -->
+    <!-- Links útiles (movidos justo debajo de los consejos) -->
+    <section class="cuadro">
+      <h3>Links útiles</h3>
+      <ul>
+        <li><a href="https://www.universoformulas.com/matematicas/trigonometria/" target="_blank">Universo Fórmulas</a></li>
+        <li><a href="https://es.khanacademy.org/math/trigonometry" target="_blank">Khan Academy - Trigonometría</a></li>
+        <li><a href="https://paginaeducativa.com/trigonometria/" target="_blank">Página Educativa - Trigonometría</a></li>
+        <li><a href="https://www.geogebra.org/m/trigonometry" target="_blank">GeoGebra - Simulador interactivo</a></li>
+        <li><a href="https://www.superprof.co/blog/formulas-basicas-trigonometria/" target="_blank">Superprof - Formulario trigonométrico</a></li>
+      </ul>
+    </section>
+
+    <!-- Imágenes -->
+    <section class="cuadro">
+      <h3>Imágenes educativas</h3>
+      <img src="imagenes/cuni" alt="Círculo unitario" class="img-cuadro">
+      <p>El círculo unitario ayuda a entender cómo cambian las razones trigonométricas con los ángulos.</p>
+    </section>
+
+  </main>
+
+  <!-- Pie de página -->
   <footer>
     <div class="footer-container">
       <div class="footer-section">
@@ -96,19 +122,24 @@
         <p>Proyecto AUXIMATH</p>
         <p>Aprendiendo trigonometría de forma interactiva.</p>
       </div>
+
       <div class="footer-section">
         <h4>Enlaces</h4>
-        <a href="#">Proceso</a><br>
+        <a href="proceso.html">Proceso</a><br>
+        <a href="contacto.html">Contacto</a>
       </div>
+
       <div class="footer-section">
         <h4>Contacto</h4>
         <p>Email: auximath@ejemplo.com</p>
       </div>
     </div>
+
     <div class="footer-bottom">
       &copy; 2025 AUXIMATH | Todos los derechos reservados
     </div>
   </footer>
 
+  <script src="config.js"></script>
 </body>
 </html>

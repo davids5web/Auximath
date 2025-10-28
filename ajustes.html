@@ -9,7 +9,6 @@
   <!-- Encabezado visual -->
 <header class="page-header">
   <h1><span>⚡ Ajustes AUXIMATH ⚡</span></h1>
-
 </header>
   <div class="menu-config">
     <h2>Menú de ajustes</h2>
@@ -80,7 +79,6 @@
             </select>
           </div>
 
-
           <!-- Animación -->
           <div class="config-bloque">
             <label for="animacionCuadro">✨ Animación de los cuadros</label>
@@ -94,8 +92,6 @@
           <button onclick="resetAjustes()">Restaurar valores originales</button>
         </div>
       </div>
-
-    
 
     </div> <!-- cierre menú desplegable -->
 
@@ -145,8 +141,6 @@
       guardarPersonalizacion();
     });
 
-   
-
     textoColor.addEventListener('input', () => {
       preview.style.color = textoColor.value;
       guardarPersonalizacion();
@@ -182,7 +176,6 @@
         document.body.style.fontFamily = localStorage.getItem('fuentePagina');
         fuente.value = localStorage.getItem('fuentePagina');
       }
-      
       if (localStorage.getItem('textoColor')) {
         preview.style.color = localStorage.getItem('textoColor');
         textoColor.value = localStorage.getItem('textoColor');
@@ -203,38 +196,11 @@
         submenu.classList.toggle('active');
       });
     });
-  
-function resetAjustes() {
-    localStorage.clear(); // Borra todo
-    window.location.reload(); // Recarga la página para aplicar valores por defecto
-}
 
-
+    function resetAjustes() {
+      localStorage.clear(); // Borra todo
+      window.location.reload(); // Recarga la página para aplicar valores por defecto
+    }
   </script>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-section">
-        <h4>Sobre nosotros</h4>
-        <p>Proyecto AUXIMATH</p>
-        <p>aprendiendo trigonometría de forma interactiva.</p>
-      </div>
-
-      <div class="footer-section">
-        <h4>Enlaces</h4>
-        <a href="#">Proceso</a><br>
-      </div>
-
-      <div class="footer-section">
-        <h4>Contacto</h4>
-        <p>Email: auximath@ejemplo.com</p>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      &copy; 2025 AUXIMATH | Todos los derechos reservados
-    </div>
-  </footer>
 </body>
 </html>

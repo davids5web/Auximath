@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller: Uso de Razones Trigonométricas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f7ff;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #0056b3;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #003366;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+
+    .pregunta {
+      margin-bottom: 20px;
+      background-color: #eef4ff;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    button {
+      background-color: #0056b3;
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #003d80;
+    }
+
+    .retro {
+      margin-top: 8px;
+      font-weight: bold;
+    }
+
+    .correcta {
+      color: green;
+    }
+
+    .incorrecta {
+      color: red;
+    }
+
+    .ejemplo {
+      background-color: #f0f9ff;
+      padding: 15px;
+      border-left: 5px solid #0056b3;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Taller: Uso de las Razones Trigonométricas en Triángulos Rectángulos</h1>
+</header>
+
+<main>
+  <section>
+    <h2>Explicación del tema</h2>
+    <p>
+      Las <strong>razones trigonométricas</strong> relacionan los lados de un triángulo rectángulo con sus ángulos. 
+      Las principales son:
+    </p>
+    <ul>
+      <li><b>Seno (sen):</b> Cateto opuesto / Hipotenusa</li>
+      <li><b>Coseno (cos):</b> Cateto adyacente / Hipotenusa</li>
+      <li><b>Tangente (tan):</b> Cateto opuesto / Cateto adyacente</li>
+    </ul>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Triangle_with_notations_2.svg" alt="Triángulo rectángulo">
+  </section>
+
+  <section>
+    <h2>Ejemplo resuelto</h2>
+    <div class="ejemplo">
+      <p>
+        En un triángulo rectángulo, el ángulo A mide 30° y la hipotenusa mide 10 cm. 
+        Calcula el cateto opuesto usando la razón seno.
+      </p>
+      <p>
+        Fórmula: <b>sen(30°) = cateto opuesto / hipotenusa</b><br>
+        ⇒ cateto opuesto = sen(30°) × 10 = 0.5 × 10 = <b>5 cm</b>
+      </p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Right_triangle_sine.svg" alt="Ejemplo seno triángulo">
+    </div>
+  </section>
+
+  <section>
+    <h2>Preguntas de práctica</h2>
+
+    <div class="pregunta" id="p1">
+      <p>1. ¿Cuál es la razón trigonométrica que relaciona el cateto opuesto y la hipotenusa?</p>
+      <input type="radio" name="p1" value="a"> Coseno<br>
+      <input type="radio" name="p1" value="b"> Tangente<br>
+      <input type="radio" name="p1" value="c"> Seno<br>
+      <button onclick="verificar('p1','c')">Verificar</button>
+      <p class="retro" id="r1"></p>
+    </div>
+
+    <div class="pregunta" id="p2">
+      <p>2. Si sen(θ) = 4/5, ¿cuál sería la hipotenusa si el cateto opuesto mide 8 cm?</p>
+      <input type="radio" name="p2" value="a"> 10 cm<br>
+      <input type="radio" name="p2" value="b"> 6.4 cm<br>
+      <input type="radio" name="p2" value="c"> 12 cm<br>
+      <button onclick="verificar('p2','a')">Verificar</button>
+      <p class="retro" id="r2"></p>
+    </div>
+
+    <div class="pregunta" id="p3">
+      <p>3. ¿Qué relación corresponde a tan(θ)?</p>
+      <input type="radio" name="p3" value="a"> Cateto opuesto / Cateto adyacente<br>
+      <input type="radio" name="p3" value="b"> Cateto adyacente / Hipotenusa<br>
+      <input type="radio" name="p3" value="c"> Cateto opuesto / Hipotenusa<br>
+      <button onclick="verificar('p3','a')">Verificar</button>
+      <p class="retro" id="r3"></p>
+    </div>
+
+    <div class="pregunta" id="p4">
+      <p>4. Si cos(45°) = 0.707 y la hipotenusa mide 14 cm, ¿cuánto mide el cateto adyacente?</p>
+      <input type="radio" name="p4" value="a"> 9.9 cm<br>
+      <input type="radio" name="p4" value="b"> 10 cm<br>
+      <input type="radio" name="p4" value="c"> 11.5 cm<br>
+      <button onclick="verificar('p4','b')">Verificar</button>
+      <p class="retro" id="r4"></p>
+    </div>
+
+    <div class="pregunta" id="p5">
+      <p>5. ¿Qué razón trigonométrica se usa para calcular la altura de un edificio usando su distancia y ángulo de elevación?</p>
+      <input type="radio" name="p5" value="a"> Coseno<br>
+      <input type="radio" name="p5" value="b"> Tangente<br>
+      <input type="radio" name="p5" value="c"> Seno<br>
+      <button onclick="verificar('p5','b')">Verificar</button>
+      <p class="retro" id="r5"></p>
+    </div>
+
+  </section>
+</main>
+
+<script>
+function verificar(pregunta, correcta) {
+  const opciones = document.getElementsByName(pregunta);
+  let seleccion = null;
+  for (const o of opciones) if (o.checked) seleccion = o.value;
+
+  const retro = document.getElementById("r" + pregunta.substring(1));
+  if (seleccion === correcta) {
+    retro.textContent = "✔ Correcto. Bien hecho.";
+    retro.className = "retro correcta";
+  } else {
+    retro.textContent = "✖ Incorrecto. Revisa la definición y vuelve a intentarlo.";
+    retro.className = "retro incorrecta";
+  }
+}
+</script>
+
+</body>
+</html>
